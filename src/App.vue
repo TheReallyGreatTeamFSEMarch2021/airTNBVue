@@ -11,6 +11,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import HelloWorld from './components/HelloWorld.vue'
+import PhotoGallery from './components/PhotoGallery/PhotoGallery.vue'
+>>>>>>> ec942cb (styling image gallery)
 
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods

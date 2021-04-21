@@ -1,0 +1,22 @@
+div{
+ height: auto;
+}
+
+#gallery{
+    width: 60%;
+    min-width: 1000px;
+    margin: auto;
+    height: 500px;
+    border: 2px solid blue;
+}
+
+
+#container1{
+    object-fit: fill;
+    overflow: hidden;
+    float: left;
+    width: 50%;
+    height: 500px;
+
+    border-radius: 20px 0px 0px 20px;
+}

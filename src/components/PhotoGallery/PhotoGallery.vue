@@ -1,16 +1,19 @@
 <template>
-  <div>
-      <p>Photo Gallery</p>
-      <div>{{photos}}</div>
-      <div v-for="photo in photos" v-bind:key="photo.id">
-        {{photo.url}}
+  <div id="gallery">
+      <div v-if="bDataLoaded">
+        <div id="container1">
+          <img v-bind:src="`${photos[0].url}`" alt="photo" width="100%" height="100%">
+        </div>
       </div>
   </div>
 </template>
 
-
+<style scoped src="./GalleryStyle.css">
+</style>
 <script>
-import axios from 'axios'
+import axios from 'axios';
+
+
 export default {
   name: 'PhotoGallery',
   
@@ -20,7 +23,8 @@ export default {
 
   data(){
       return{
-          photos:null
+          photos:[],
+          bDataLoaded: false
       }
   },
 
@@ -28,6 +32,7 @@ export default {
         axios.get('http://localhost:8080/api/photo/getByListingId/1')
         .then(response => {
             this.photos = response.data;
+            this.bDataLoaded = true;
             
         })
   }
