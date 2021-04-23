@@ -3,20 +3,41 @@ div{
 }
 
 #gallery{
-    width: 60%;
+    width: 55%;
     min-width: 1000px;
     margin: auto;
     height: 500px;
     border: 2px solid blue;
 }
 
-
-#container1{
+.bigContainer{
     object-fit: fill;
     overflow: hidden;
     float: left;
     width: 50%;
     height: 500px;
-
     border-radius: 20px 0px 0px 20px;
+    margin-right: 6px;
+    
+}
+.littleContainer{
+    height: 247px;
+    width: 24%;
+    float: left;
+    object-fit: fill;
+    overflow: hidden;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+#c1{
+    border-radius: 20px 0px 0px 20px;
+}
+
+#c2{
+    border-radius: 0px 20px 0px 0px;
+}
+
+#c3{
+    border-radius: 0px 0px 20px 0px;
 }
