@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">    
      
     <div class="row col-12">
@@ -10,11 +11,14 @@
 
 <script>
 
+
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 
+
 export default {
   name: 'App',
+
   components: {
     
   }
@@ -80,3 +84,4 @@ h1{
 
   
 </style>
+
