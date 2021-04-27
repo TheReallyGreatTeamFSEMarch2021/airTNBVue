@@ -47,7 +47,7 @@
         <h1>HOSTED BY</h1>
     </div>
     <div class="row col-12"> 
-        <h1>THINGS TO KNOW</h1>
+        <things-to-know/>
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
@@ -74,6 +74,7 @@
   import Reviews from "../Reviews/Reviews.vue";
   import Rooms from "../Rooms/Rooms.vue"
   import Description from "../Description/Description.vue";
+  import ThingsToKnow from '../ThingsToKnow/ThingsToKnow.vue';
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
   import Amenities from '../Amenities/Amenities'
@@ -90,6 +91,7 @@
         Rooms,
         Amenities,
         Calendar,
+        ThingsToKnow
     },  
     props: {
       
