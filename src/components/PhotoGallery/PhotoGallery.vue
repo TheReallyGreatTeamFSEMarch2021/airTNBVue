@@ -1,22 +1,21 @@
 <template>
-  <div id="gallery">
-      <div v-if="bDataLoaded">
+  <div v-if="bDataLoaded" id="gallery">
         <div id="c1" class="bigContainer">
           <img v-bind:src="`${photos[0].url}`" alt="photo" width="100%" height="100%">
         </div>
-        <div id="container2" class="littleContainer">
+        <div id="c2" class="littleContainer">
           <img v-bind:src="`${photos[1].url}`" alt="photo" width="100%" height="100%">
         </div>
-        <div id="container3" class="littleContainer">
+        <div id="c3" class="littleContainer">
           <img v-bind:src="`${photos[2].url}`" alt="photo" width="100%" height="100%">
         </div>
-        <div id="container2" class="littleContainer">
+        <div id="c4" class="littleContainer">
           <img v-bind:src="`${photos[3].url}`" alt="photo" width="100%" height="100%">
         </div>
-        <div id="container4" class="littleContainer">
+        <div id="c5" class="littleContainer">
           <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="100%">
         </div>
-      </div>
+      
   </div>
 </template>
 
@@ -30,7 +29,7 @@ export default {
   name: 'PhotoGallery',
   
   props: {
-    listingId: Number
+
   },
 
   data(){
@@ -41,12 +40,17 @@ export default {
   },
 
   mounted(){
-        axios.get('http://localhost:8080/api/photo/getByListingId/1')
+        let listingId = this.$route.params.id;
+
+        axios.get('http://localhost:8080/api/photo/getByListingId/'+listingId)
         .then(response => {
             this.photos = response.data;
-            this.bDataLoaded = true;
+            if(this.photos.length > 0){
+              this.bDataLoaded = true;
+            }
             
         })
+
   }
 
   

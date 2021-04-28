@@ -78,8 +78,5 @@ h1{
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
   
-
-
-  
 </style>
 
