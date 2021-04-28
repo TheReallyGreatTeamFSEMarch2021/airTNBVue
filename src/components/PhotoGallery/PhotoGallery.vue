@@ -15,7 +15,6 @@
         <div id="c5" class="littleContainer">
           <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="100%">
         </div>
-      
   </div>
 </template>
 
@@ -48,11 +47,7 @@ export default {
             if(this.photos.length > 0){
               this.bDataLoaded = true;
             }
-            
         })
-
   }
-
-  
 }
 </script>
