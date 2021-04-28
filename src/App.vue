@@ -11,11 +11,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
-import HelloWorld from './components/HelloWorld.vue'
-import PhotoGallery from './components/PhotoGallery/PhotoGallery.vue'
->>>>>>> ec942cb (styling image gallery)
 
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
@@ -31,6 +26,7 @@ export default {
 </script >
 
 <style >
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,12 +35,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 #app * {
   border: 1px solid green;
   box-sizing: border-box;
-  margin:0px;
-  padding:0px;
 }
 
 h1{
