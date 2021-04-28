@@ -1,7 +1,13 @@
 <template>
   <div id="descriptionPanel">
-      <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
-      <span> [0] guests</span><span>[type of place]</span><span>[0] beds</span><span>[0] bath</span> <span>[HostImage]</span>
+      <div id="descriptionHeader">
+        <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
+        <div class="detailSubHeading">
+            <span> [0] guests</span><span>[type of place]</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
+        </div>
+      </div>
+     
+      
       <hr>
         <div id="detailsSection">
             <div class="grid-container">
@@ -73,13 +79,19 @@
 </template>
 
 <style scoped>
+#descriptionHeader{
+    padding-bottom:10px;
+    text-align: left;
+}
+#detailsSection{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .grid-container {
     display: grid;
     grid-template-columns: 100px auto;
 }
 .detailHeading{
-
-    
     font-weight: 400 !important;
     font-size: 16px !important;
     line-height: 20px !important;
@@ -108,7 +120,7 @@
 
 }
 #hostImage{
-
+float: right
 }
 </style>
 <script>
