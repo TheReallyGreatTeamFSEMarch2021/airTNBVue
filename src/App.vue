@@ -1,6 +1,6 @@
 <template>
 
-  <div id="app">    
+<div id="app">    
      
     <div class="row col-12">
       <h1>NavBar Vue Component</h1>
@@ -15,12 +15,11 @@
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 
-
 export default {
   name: 'App',
 
   components: {
-    
+
   }
 }
 </script >
