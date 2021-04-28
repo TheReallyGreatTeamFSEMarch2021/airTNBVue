@@ -15,12 +15,11 @@
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 
-
 export default {
   name: 'App',
 
   components: {
-    
+
   }
 }
 </script >
