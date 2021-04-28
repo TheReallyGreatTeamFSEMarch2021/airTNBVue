@@ -1,81 +1,76 @@
 <template>
-  <div id="descriptionPanel">
+   <div id="descriptionPanel">
       <div id="descriptionHeader">
-        <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
-        <div class="detailSubHeading">
+         <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
+         <div class="detailSubHeading">
             <span> [0] guests</span><span>[type of place]</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
-        </div>
+         </div>
       </div>
-     
-      
       <hr>
-        <div id="detailsSection">
-            <div class="grid-container">
-                <div class="">
-                    <span class="detailIcon">🏠</span>
-                </div>
-                <div class="subDetail grid-child">
-                    <span class="detailHeading">
-                        Entire {{data.typeOfPlace}}
-                    </span>
-                    <br>
-                    <span class="detailSubHeading">
-                        You'll have the {{data.typeOfPlace}} to yourself.
-                    </span>
-                </div>
+      <div id="detailsSection">
+         <div class="grid-container">
+            <div class="">
+               <span class="detailIcon">🏠</span>
             </div>
-            <div class="grid-container">
-                <div class="">
-                    <span class="detailIcon">📅</span>
-                </div>
-                <div class="grid-child">
-                    <span class="detailHeading">
-                    Free cancellation until {{data.cancellationDate}}
-                    </span>
-                    <br>
-                    <span class="detailSubHeading">
-                        After that, cancel before [HOUR AM/PM] on [DATE] and get a full refund, minus the first night and service fee.
-                    </span>
-                </div>
-                
+            <div class="subDetail">
+               <span class="detailHeading">
+               Entire {{data.typeOfPlace}}
+               </span>
+               <br>
+               <span class="detailSubHeading">
+               You'll have the {{data.typeOfPlace}} to yourself.
+               </span>
             </div>
-            <div class="grid-container">
-                <div class="">
-                    <span class="detailIcon">⭐</span>
-                </div>
-                <div class="grid-child">
-                    <span class="detailHeading">
-                    Enchanced Clean
-                    </span>
-                    <br>
-                    <span class="detailSubHeading">
-                        This host commited to AirTnb  5 - step enhanced cleaning process. Learn more.
-                    </span>
-                </div>
-                
+         </div>
+         <div class="grid-container">
+            <div class="">
+               <span class="detailIcon">📅</span>
             </div>
-            <div class="grid-container">
-                <div class="">
-                    <span class="detailIcon">📋</span>
-                </div>
-                <div class="grid-child">
-                    <span class="detailHeading">
-                    House rules
-                    </span>
-                    <br>
-                    <span class="detailSubHeading">
-                        The host does allow pets, parties, and smoking.
-                    </span>
-                </div>
-                
+            <div class="subDetail">
+               <span class="detailHeading">
+               Free cancellation until {{data.cancellationDate}}
+               </span>
+               <br>
+               <span class="detailSubHeading">
+               After that, cancel before [HOUR AM/PM] on [DATE] and get a full refund, minus the first night and service fee.
+               </span>
             </div>
-        </div>
+         </div>
+         <div class="grid-container">
+            <div class="">
+               <span class="detailIcon">⭐</span>
+            </div>
+            <div class="subDetail">
+               <span class="detailHeading">
+               Enchanced Clean
+               </span>
+               <br>
+               <span class="detailSubHeading">
+               This host commited to AirTnb  5 - step enhanced cleaning process. Learn more.
+               </span>
+            </div>
+         </div>
+         <div class="grid-container">
+            <div class="">
+               <span class="detailIcon">📋</span>
+            </div>
+            <div class="subDetail">
+               <span class="detailHeading">
+               House rules
+               </span>
+               <br>
+               <span class="detailSubHeading">
+               The host does allow pets, parties, and smoking.
+               </span>
+            </div>
+         </div>
+      </div>
       <hr>
       <div id="descriptionBlurb">
-            {{data.smallDescription}}
+         {{data.smallDescription}}
       </div>
       <p></p>
-  </div>
+   </div>
 </template>
 
 <style scoped>
@@ -87,6 +82,25 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
+#descriptionPanel{
+    width:500px;
+}
+#reviewNumber{
+
+}
+#placeDetails{
+
+}
+#hostImage{
+float: right
+}
+#descriptionBlurb{
+    text-align: left;
+    margin-top: 10px;
+    font-size: 12px;
+
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 100px auto;
@@ -101,27 +115,11 @@
     color: rgb(113, 113, 113);
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 }
-.grid-child{
+.subDetail{
     text-align: left;
 }
-#descriptionBlurb{
-    text-align: left;
-    margin-top: 10px;
-    font-size: 12px;
 
-}
-#descriptionPanel{
-    width:500px;
-}
-#reviewNumber{
 
-}
-#placeDetails{
-
-}
-#hostImage{
-float: right
-}
 </style>
 <script>
   import axios from 'axios';
