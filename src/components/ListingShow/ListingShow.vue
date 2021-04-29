@@ -5,7 +5,7 @@
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <h1>Listing Photos</h1>
+      <PhotoGallery/>
     </div>
 
      <div class="row col-12">
@@ -69,18 +69,28 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
-
+  import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
+  import axios from 'axios';
   export default {
     name: 'ListingShow',
     components: {
-        
+        PhotoGallery
     },  
     props: {
       
     },
+
+    created(){
+        let listingId = this.$route.params.id;
+        axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
+          (resp)=> {
+            this.listing = resp.data;
+          }
+        )
+    },
     data(){
         return{
-          
+          listing:{}
         }
     },
     mounted(){

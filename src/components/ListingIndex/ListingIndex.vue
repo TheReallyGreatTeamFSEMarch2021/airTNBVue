@@ -2,18 +2,18 @@
   <div id="listingIndex">
      <h1>ListingIndex</h1>
   </div>
+
 </template>
 
-<style scoped src="./ListingIndex.css">
-</style>
 <script>
-  import axios from 'axios';
   export default {
     name: 'ListingIndex',
-    
     props: {
-      
     },
+    components:{
+
+    }
+    ,
     data(){
         return{
           
@@ -25,3 +25,4 @@
     
   }
 </script>
+<style scoped src="./ListingIndex.css"></style>
