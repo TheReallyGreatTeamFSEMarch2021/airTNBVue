@@ -12,7 +12,6 @@
             <div class="">
                <span class="detailIcon">
                   <v-img
-                     lazy-src="../../assets/home.png"
                      src="../../assets/home.png">
                   </v-img>
                </span>
@@ -31,7 +30,6 @@
             <div class="">
                <span class="detailIcon">
                   <v-img
-                     lazy-src="../../assets/calendar.png"
                      src="../../assets/calendar.png">
                   </v-img>
                </span>
@@ -50,9 +48,7 @@
             <div class="">
                <span class="detailIcon">
                   <v-img
-                     lazy-src="../../assets/home.png"
-                     max-height="150"
-                     max-width="250"
+                     
                      src="../../assets/clean.png">
                   </v-img>
                </span>
@@ -71,9 +67,6 @@
             <div class="">
                <span class="detailIcon">
                   <v-img
-                     lazy-src="../../assets/home.png"
-                     max-height="150"
-                     max-width="250"
                      src="../../assets/rules.png">
                   </v-img>
                </span>
