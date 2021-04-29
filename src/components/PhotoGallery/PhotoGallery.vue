@@ -28,7 +28,7 @@ export default {
   name: 'PhotoGallery',
   
   props: {
-
+    listing:{}
   },
 
   data(){
