@@ -22,9 +22,7 @@
             </p>
           </div>
           <div class="col-12">
-            <h2> Sleeping Arrangemnets</h2>
-            BEDROOM1 - 1 Queen Bed
-       
+            <Rooms/>  
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
@@ -82,6 +80,7 @@
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
+  import Rooms from "../Rooms/Rooms.vue"
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
   export default {
@@ -90,7 +89,8 @@
         PhotoGallery,
         Reviews,
         MorePlaces,
-        GMap
+        GMap,
+        Rooms
     },  
     props: {
       

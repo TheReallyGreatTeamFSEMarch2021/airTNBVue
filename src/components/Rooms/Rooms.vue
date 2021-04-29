@@ -4,29 +4,11 @@
             Sleeping Arrangements
         </div>
         <div v-for="room of rooms" :key="room.id" class="roomCard">
-            <div v-if="false">
-                {{numBeds = room.kBeds + room.qBeds + room.dBeds + room.sBeds + room.cBeds}}
+            <div id="roomName">
+                {{room.name}}
             </div>
-            
-            {{room.name}}
-            <div v-if="room.kBeds > 1" class="beds">
-                {{room.kBeds}} king beds
-            </div>
-            <div v-if-else="room.kBeds > 0" class="beds">
-                {{room.kBeds}} king bed
-            </div>
-            
-            <div v-if="room.qBeds > 0" class="beds">
-                {{room.qBeds}} queen bed
-            </div>
-            <div v-if="room.dBeds > 0" class="beds">
-                {{room.dBeds}} double bed
-            </div>
-            <div v-if="room.sBeds > 0" class="beds">
-                {{room.sBeds}} single bed
-            </div>
-            <div v-if="room.cBeds > 0" class="beds">
-                {{room.cBeds}} couch bed
+            <div class="beds">
+                {{room.beds}}
             </div>
         </div>
   </div>
@@ -37,31 +19,78 @@
 <script>
 import axios from 'axios';
 
-
 export default {
-  name: 'Rooms',
+    name: 'Rooms',
   
-  props: {
-    listingId: Number
-  },
+    props: {
+        listingId: Number
+    },
 
-  data(){
-      return{
-          rooms:[],
-          bDataLoaded: false,
-          numRooms:Number
-      }
-  },
+    data(){
+        return{
+            rooms:[],
+            bDataLoaded: false,
+            numRooms:Number
+        }
+    },
 
-  mounted(){
+    mounted(){
         axios.get('http://localhost:8080/api/room/getByListingId/1')
         .then(response => {
             this.rooms = response.data;
             this.bDataLoaded = true;
             this.numRooms = this.rooms.length;
+            this.setRooms();
         })
-  }
+    },
 
-  
+    methods: {
+        setRooms: function(){
+            
+            for(let room of this.rooms){
+                let beds = "";
+                let bedArr = []
+
+                if(room.kBeds > 1){
+                    bedArr.push(room.kBeds+" king beds")
+                }
+                else if(room.kBeds == 1){
+                    bedArr.push(room.kBeds+" king bed")
+                }
+
+                if(room.qBeds > 1){
+                    bedArr.push(room.qBeds+" queen beds")
+                }
+                else if(room.qBeds == 1){
+                    bedArr.push(room.qBeds+" queen bed")
+                }
+
+                if(room.dBeds > 1){
+                    bedArr.push(room.dBeds+" double beds")
+                }
+                else if(room.dBeds == 1){
+                    bedArr.push(room.dBeds+" double bed")
+                }
+
+                if(room.sBeds > 1){
+                    bedArr.push(room.sBeds+" single beds")
+                }
+                else if(room.sBeds == 1){
+                    bedArr.push(room.sBeds+" single bed")
+                }
+
+                if(room.cBeds > 1){
+                    bedArr.push(room.cBeds+" couch beds")
+                }
+                else if(room.cBeds == 1){
+                    bedArr.push(room.cBeds+" couch bed")
+                }
+
+                room.beds = bedArr.join(', ');
+            }
+        }
+    }
+    
+
 }
 </script>

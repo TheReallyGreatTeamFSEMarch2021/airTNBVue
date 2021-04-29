@@ -3,7 +3,6 @@
     height: 300px;
     width: 800px;
     margin: 0 auto;
-    position: relative;
 }
 
 #title{
@@ -15,9 +14,23 @@
 
 .roomCard{
     border: 1px solid gray;
-    width: 250px;
-    height: 175px;
-    border-radius: 30px;
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
     float:left;
     margin-right: 10px;
+}
+
+#roomName{
+    margin-top: 10px;
+    font-weight: 700;
+    float: left;
+    margin-left: 15px;
+}
+
+.beds{
+    clear:both;
+    float: left;
+    margin-left: 15px;
+    text-align: left;
 }
