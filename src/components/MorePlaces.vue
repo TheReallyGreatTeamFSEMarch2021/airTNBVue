@@ -35,6 +35,7 @@ export default {
             // eslint-disable-next-line no-undef
             axios.get(`http://localhost:8080/api/listing/getListingsByCityAndState/${this.listing.id}`).then(
                 (resp) => {
+                    resp.data = resp.data.filter( list => list.id !== this.listing.id)
                     this.moreListings = resp.data;
                 }
             ).catch((err)=> console.log(err));
