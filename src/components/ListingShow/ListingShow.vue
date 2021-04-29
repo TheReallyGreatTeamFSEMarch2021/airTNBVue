@@ -5,7 +5,7 @@
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <PhotoGallery :listing="listing"/>
+      <PhotoGallery/>
     </div>
 
      <div class="row col-12">
