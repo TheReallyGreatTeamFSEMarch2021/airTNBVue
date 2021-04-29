@@ -1,6 +1,7 @@
 <template>
 <div>
-    <iframe width="600" 
+    <iframe 
+      width="100%"
       height="450" 
       style="border:0" 
       loading="lazy" 
