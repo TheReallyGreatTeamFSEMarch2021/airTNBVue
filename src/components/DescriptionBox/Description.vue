@@ -3,7 +3,7 @@
       <div id="descriptionHeader">
          <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
          <div class="detailSubHeading">
-            <span> [0] guests</span><span>[type of place]</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
+            <span> [0] guests</span><span>{{data.typeOfPlace}}</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
          </div>
       </div>
       <hr>
