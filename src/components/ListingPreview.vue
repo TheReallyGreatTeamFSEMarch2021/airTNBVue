@@ -12,7 +12,7 @@
         </div>
         <span style="font-size:10px">{{avgRating}} average rating with {{listing.reviews.length}} reviews </span>
     </div>
-    <span>{{listing.subTitle}}  <b>from ${{listing.price.toPrecision(3)}} / night</b></span>
+    <span>{{listing.subTitle}}  <b>from ${{listing.price.toFixed(2)}} / night</b></span>
     </router-link>
   </div>
 </template>
