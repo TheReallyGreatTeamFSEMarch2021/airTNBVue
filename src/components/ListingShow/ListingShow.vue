@@ -46,7 +46,7 @@
         <h1>REVIEWS</h1>
     </div>
     <div class="row col-12"> 
-        <h1>LOCATION</h1>
+        <h1 style="text-align:left">LOCATION</h1>
         <GMap
           v-if="listing"
           :lat="listing.location.latitude"
