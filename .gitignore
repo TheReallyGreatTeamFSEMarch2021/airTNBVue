@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # ApiKey
-./src/assets/mapskey.json
+*/**/mapskey.json
