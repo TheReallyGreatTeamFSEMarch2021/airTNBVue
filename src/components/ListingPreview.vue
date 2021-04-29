@@ -28,13 +28,11 @@ export default {
         return {
             photo:String,
             avgRating:Number,
-            stars:[]
         }
     },
     methods:{
       getAvg() {
-          let avg = this.listing.reviews.map(review => review.starValue).reduce((acc, value)=> acc+=value)/this.listing.reviews.length;
-         
+          let avg = this.listing.reviews.map(review => review.starValue).reduce((acc, value)=> acc+=value)/this.listing.reviews.length;    
           return avg.toPrecision(3);
       }  
     },
@@ -46,14 +44,7 @@ export default {
             )
             let average = this.getAvg();
             this.avgRating=average;
-            let temp = [];
-            for(let i = 0; i<average;i++){
-                temp.push({something:i})
-            }
-            this.stars=temp;
-        
     },
-
 }
 </script>
 
