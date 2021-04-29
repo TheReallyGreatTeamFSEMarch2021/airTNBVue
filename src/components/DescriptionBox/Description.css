@@ -39,5 +39,6 @@ float: right
 }
 .subDetail{
     text-align: left;
-    padding-top:20px;
+    padding-top:9px;
+    padding-left: 20px;
 }
