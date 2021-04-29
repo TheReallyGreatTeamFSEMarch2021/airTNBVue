@@ -36,7 +36,6 @@ export default {
             axios.get(`http://localhost:8080/api/listing/getListingsByCityAndState/${this.listing.id}`).then(
                 (resp) => {
                     this.moreListings = resp.data;
-                    console.log(resp.data)
                 }
             ).catch((err)=> console.log(err));
         }

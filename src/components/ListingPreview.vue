@@ -22,7 +22,6 @@ export default {
             axios.get('http://localhost:8080/api/photo/getByListingId/'+this.listing.id).then(
                 (resp)=> {
                     this.photo = resp.data[0].url; 
-                    console.log(resp.data)
                 }
             )
         
