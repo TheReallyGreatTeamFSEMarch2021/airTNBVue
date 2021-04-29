@@ -1,7 +1,10 @@
 <template>
   <div>
+    <router-link :to="{ name: 'ListingShow', params: { id: listing.id }}">
+
     <img v-if="photo.length>2" :src="photo" alt="">
     <span>{{listing.subTitle}}</span>
+    </router-link>
   </div>
 </template>
 
