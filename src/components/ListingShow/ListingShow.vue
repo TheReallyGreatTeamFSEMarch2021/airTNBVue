@@ -10,7 +10,7 @@
 
      <div class="row col-12">
       <div class="col-9">
-        <description :listingId="this.$route.params.id"/>
+        <description :listingId="this.$route.params.id" v-if="listing"/>
         <!--
           <div class="col-12">
             <h2> Description 1</h2>
@@ -91,7 +91,10 @@
           (resp)=> {
             this.listing = resp.data;
           }
-        )
+        ).catch(error=>{
+          this.listing = null;
+          console.error(error)
+        })
     },
     data(){
         return{

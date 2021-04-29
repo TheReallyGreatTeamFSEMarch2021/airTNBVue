@@ -99,7 +99,7 @@
                  this.data = {
                     typeOfPlace:'Unknown Place',
                     cancellationDate: '01/01/2000',
-                    smallDescription: 'This listing does not have a small description.'
+                    smallDescription: 'This listing does not exist.'
                  }
               }
           })
@@ -122,6 +122,7 @@
                       break;
               }
           })
+         
     },
   }
 </script>
