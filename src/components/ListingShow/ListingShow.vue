@@ -10,6 +10,8 @@
 
      <div class="row col-12">
       <div class="col-9">
+        <description :listingId="this.$route.params.id"/>
+        <!--
           <div class="col-12">
             <h2> Description 1</h2>
             <p>Entire home</p>
@@ -21,6 +23,7 @@
             <p>Vintage & repurposed finds make this space unique with modern upscale amenities and appliances. This cozy cool industrial space is the perfect place to wind down & get cozy after a day of exploring WNY!
             </p>
           </div>
+          -->
           <div class="col-12">
             <h2> Sleeping Arrangemnets</h2>
             BEDROOM1 - 1 Queen Bed
@@ -70,11 +73,13 @@
 </style>
 <script>
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
+  import Description from "../DescriptionBox/Description.vue";
   import axios from 'axios';
   export default {
     name: 'ListingShow',
     components: {
-        PhotoGallery
+        PhotoGallery,
+        Description
     },  
     props: {
       

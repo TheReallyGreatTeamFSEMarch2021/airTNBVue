@@ -19,10 +19,5 @@ export default new Router({
             name: 'ListingIndexPage',
             component: () => import('@/components/ListingIndex/ListingIndex')
           },
-          {
-            path: '/description',
-            name: 'description-box',
-            component: ()=> import ('@/components/DescriptionBox/Description')
-          }
     ]
 })

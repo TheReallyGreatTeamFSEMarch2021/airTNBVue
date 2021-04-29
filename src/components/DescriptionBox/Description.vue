@@ -73,98 +73,55 @@
    </div>
 </template>
 
-<style scoped>
-#descriptionHeader{
-    padding-bottom:10px;
-    text-align: left;
-}
-#detailsSection{
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-#descriptionPanel{
-    width:500px;
-}
-#reviewNumber{
-
-}
-#placeDetails{
-
-}
-#hostImage{
-float: right
-}
-#descriptionBlurb{
-    text-align: left;
-    margin-top: 10px;
-    font-size: 12px;
-
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 100px auto;
-}
-.detailHeading{
-    font-weight: 400 !important;
-    font-size: 16px !important;
-    line-height: 20px !important;
-}
-.detailSubHeading {
-    font-size: 14px;
-    color: rgb(113, 113, 113);
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-}
-.subDetail{
-    text-align: left;
-}
-
-
+<style scoped src="./Description.css">
 </style>
 <script>
   import axios from 'axios';
   export default {
     name: 'DescriptionBox',
     
-    props: {
-      
-    },
+    props: ['listingId'],
     data(){
         return{
           'data': ''
         }
     },
-    mounted(){
-        // Get id from url to get description
-          axios({
+    created(){
+       axios({
               method: 'GET',
-              url: 'http://localhost:8080/api/description/24',
+              url: `http://localhost:8080/api/description/${this.listingId}`,
               headers: '',
           })
           .then(response=>{
-              console.table(response.data)
+              //console.table(response.data)
               this.data = response.data
+              if(this.data === null){
+                 this.data = {
+                    typeOfPlace:'Unknown Place',
+                    cancellationDate: '01/01/2000',
+                    smallDescription: 'This listing does not have a small description.'
+                 }
+              }
           })
           .catch((error) => {
               switch(error.response.status){
                   case 400:
-                      console.log('An error has occurred.')
+                      console.error('An error has occurred.')
                       break;
                   case 404:
-                      console.log('Not found')
+                      console.error('Not found')
                       break;
                   case 401:
-                      console.log('Not allowed')
+                      console.error('Not allowed')
                       break;
                   case 500:
-                      console.log('Server error')
+                      console.error('Server error')
                       break;
                   default:
-                      console.log('Unknown error has occurred.')
+                      console.error('Unknown error has occurred.')
                       break;
               }
           })
-    }
-    
+    },
   }
 </script>

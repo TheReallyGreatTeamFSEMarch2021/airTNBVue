@@ -1,0 +1,43 @@
+#descriptionHeader{
+    padding-bottom:10px;
+    text-align: left;
+}
+#detailsSection{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#descriptionPanel{
+    
+}
+#reviewNumber{
+
+}
+#placeDetails{
+
+}
+#hostImage{
+float: right
+}
+#descriptionBlurb{
+    text-align: left;
+    margin-top: 10px;
+    font-size: 12px;
+
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+.detailHeading{
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+}
+.detailSubHeading {
+    font-size: 14px;
+    color: rgb(113, 113, 113);
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+}
+.subDetail{
+    text-align: left;
+}
