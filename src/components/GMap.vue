@@ -24,7 +24,6 @@ export default {
     },
     methods:{
         getApiKey(){
-            console.log(token);
             return token.token;
         }
     }
