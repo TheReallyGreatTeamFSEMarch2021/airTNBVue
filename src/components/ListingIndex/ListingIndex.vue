@@ -16,7 +16,7 @@ import GMap from '../GMap.vue'
     props: {
     },
     components:{
-        GMap
+        GMap,
     }
     ,
     data(){

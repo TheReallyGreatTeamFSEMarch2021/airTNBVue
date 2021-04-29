@@ -6,14 +6,15 @@
       <h1>NavBar Vue Component</h1>
     </div>
     <router-view></router-view>  
+
   </div>
 </template>
 
 <script>
 
-
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
+window.axios = require('axios');
 
 export default {
   name: 'App',
@@ -25,6 +26,7 @@ export default {
 </script >
 
 <style >
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -33,12 +35,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 #app * {
   border: 1px solid green;
   box-sizing: border-box;
-  margin:0px;
-  padding:0px;
 }
 
 h1{
@@ -78,9 +77,6 @@ h1{
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
-  
-
-
   
 </style>
 

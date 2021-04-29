@@ -5,7 +5,7 @@
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <h1>Listing Photos</h1>
+      <PhotoGallery/>
     </div>
 
      <div class="row col-12">
@@ -69,11 +69,12 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
-
+  import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
+  
   export default {
     name: 'ListingShow',
     components: {
-        
+        PhotoGallery
     },  
     props: {
       
