@@ -10,7 +10,7 @@
 
      <div class="row col-12">
       <div class="col-9">
-        <description :listingId="this.$route.params.id" v-if="listing"/>
+        <description :listingId="this.$route.params.id" :listing="this.listing" v-if="listing"/>
         <!--
           <div class="col-12">
             <h2> Description 1</h2>
@@ -90,6 +90,7 @@
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
+            console.log(this.listing)
           }
         ).catch(error=>{
           this.listing = null;

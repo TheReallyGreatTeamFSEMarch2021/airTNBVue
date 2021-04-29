@@ -1,7 +1,7 @@
 <template>
    <div id="descriptionPanel">
       <div id="descriptionHeader">
-         <h3>{{data.typeOfPlace}} hosted by [HostName]</h3>
+         <h3>{{this.listing.subTitle}}</h3>
          <div class="detailSubHeading">
             <span> [0] guests</span><span>{{data.typeOfPlace}}</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
          </div>
@@ -80,7 +80,7 @@
   export default {
     name: 'DescriptionBox',
     
-    props: ['listingId'],
+    props: ['listingId','listing'],
     data(){
         return{
           'data': ''
