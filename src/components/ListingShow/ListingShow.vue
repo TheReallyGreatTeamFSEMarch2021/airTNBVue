@@ -84,7 +84,6 @@
         let listingId = this.$route.params.id;
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
-            console.log(resp);
             this.listing = resp.data;
           }
         )
