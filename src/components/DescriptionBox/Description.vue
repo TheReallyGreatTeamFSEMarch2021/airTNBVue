@@ -10,7 +10,12 @@
       <div id="detailsSection">
          <div class="grid-container">
             <div class="">
-               <span class="detailIcon">🏠</span>
+               <span class="detailIcon">
+                  <v-img
+                     lazy-src="../../assets/home.png"
+                     src="../../assets/home.png">
+                  </v-img>
+               </span>
             </div>
             <div class="subDetail">
                <span class="detailHeading">
@@ -24,7 +29,12 @@
          </div>
          <div class="grid-container">
             <div class="">
-               <span class="detailIcon">📅</span>
+               <span class="detailIcon">
+                  <v-img
+                     lazy-src="../../assets/calendar.png"
+                     src="../../assets/calendar.png">
+                  </v-img>
+               </span>
             </div>
             <div class="subDetail">
                <span class="detailHeading">
@@ -38,7 +48,14 @@
          </div>
          <div class="grid-container">
             <div class="">
-               <span class="detailIcon">⭐</span>
+               <span class="detailIcon">
+                  <v-img
+                     lazy-src="../../assets/home.png"
+                     max-height="150"
+                     max-width="250"
+                     src="../../assets/clean.png">
+                  </v-img>
+               </span>
             </div>
             <div class="subDetail">
                <span class="detailHeading">
@@ -52,7 +69,14 @@
          </div>
          <div class="grid-container">
             <div class="">
-               <span class="detailIcon">📋</span>
+               <span class="detailIcon">
+                  <v-img
+                     lazy-src="../../assets/home.png"
+                     max-height="150"
+                     max-width="250"
+                     src="../../assets/rules.png">
+                  </v-img>
+               </span>
             </div>
             <div class="subDetail">
                <span class="detailHeading">
@@ -74,6 +98,7 @@
 </template>
 
 <style scoped src="./Description.css">
+
 </style>
 <script>
   import axios from 'axios';

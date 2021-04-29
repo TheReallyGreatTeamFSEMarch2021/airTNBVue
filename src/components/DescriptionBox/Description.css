@@ -22,11 +22,10 @@ float: right
     text-align: left;
     margin-top: 10px;
     font-size: 12px;
-
 }
 .grid-container {
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 50px auto;
 }
 .detailHeading{
     font-weight: 400 !important;
@@ -40,4 +39,5 @@ float: right
 }
 .subDetail{
     text-align: left;
+    padding-top:20px;
 }
