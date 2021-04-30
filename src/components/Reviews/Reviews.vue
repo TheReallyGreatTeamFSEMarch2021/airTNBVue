@@ -2,9 +2,12 @@
     <div id="rootDiv">
         <div v-if="reviewDataLoaded">
             <div id="overview">
-                <div id ="AverageRating">
-                    <span id = "star-five" v-on:click="doStuff"></span>
-                </div>
+                    <div id = "star">
+                        <span id = "star-five"></span>
+                    </div>
+                    <div id = "averageRating">
+                        <span id = "avgReview">{{this.averageReview}}</span>
+                    </div>
             </div>
             <div id="reviews">
 
@@ -27,6 +30,13 @@ import axios from 'axios';
 
         methods:{
 
+            getAverageRating(){
+                this.reviews.forEach(rating => {
+                    this.averageReview = this.averageReview + rating.starValue;
+                });
+                this.averageReview = (this.averageReview / this.reviews.length).toFixed(1);
+                this.averageReview = this.averageReview + ' (' + this.reviews.length + ' reviews)'
+            }
         },
 
         data(){
@@ -38,7 +48,6 @@ import axios from 'axios';
         },
 
         mounted(){
-            console.log(this.reviewDataLoaded);
             let listingId = this.$route.params.id;
             axios.get('http://localhost:8080/api/review/getByListing/'+listingId)
             .then(response => {
@@ -46,8 +55,8 @@ import axios from 'axios';
                 if(this.reviews.length>0){
                     this.reviewDataLoaded=true;
                 }
+                this.getAverageRating();
             })
-
         }
 }
 </script>
