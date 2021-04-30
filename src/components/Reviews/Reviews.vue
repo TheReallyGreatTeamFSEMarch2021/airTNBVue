@@ -34,17 +34,22 @@ import axios from 'axios';
         methods:{
 
             averageRating(){
-                console.log(this.reviews)
+
                 for(let i = 0; i < this.reviews.length; i++){
                     this.averageReview = this.averageReview + this.reviews[i].starValue;
                 }
-                this.averageReview = (this.averageReview / this.reviews.length).toFixed(1);
-                console.log(this.averageReview);
+                this.averageReview = (this.averageReview / this.reviews.length).toFixed(1) + ' (' + this.reviews.length + ' reviews)';
+            },
+
+            sortReviewsByDate(){
+                const sortedReviews = this.reviews.sort((a, b) => b.date - a.date)
             }
+
         },
 
     beforeUpdate(){
         this.averageRating(this.reviews);
+        this.sortReviewsByDate();
     },
 
         data(){

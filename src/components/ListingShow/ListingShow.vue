@@ -96,6 +96,16 @@
       
     },
 
+    methods:{
+
+        sortReviewsByDate(reviews){
+            for(let i = 0; i < reviews.length; i++){
+                this.reviews[i].date = new Date(this.reviews[i].date)
+            }
+            this.reviews.sort((a, b) => b.date - a.date)
+        }
+    },
+
     beforeMount(){
         let listingId = this.$route.params.id;
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
@@ -103,6 +113,7 @@
             this.listing = resp.data;
             this.loaded = true
             this.reviews = this.listing.reviews
+            this.sortReviewsByDate(this.listing.reviews)
           }
         )
     },
