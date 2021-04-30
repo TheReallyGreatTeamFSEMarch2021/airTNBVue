@@ -88,7 +88,7 @@
     name: 'ListingShow',
     components: {
         PhotoGallery,
-        Reviews
+        Reviews,
         MorePlaces,
         GMap
     },  
