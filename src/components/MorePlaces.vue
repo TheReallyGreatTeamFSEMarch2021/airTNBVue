@@ -5,6 +5,7 @@
       >
             <ListingPreview
                 :listing="place"
+
             />
       </div>
   </div>
