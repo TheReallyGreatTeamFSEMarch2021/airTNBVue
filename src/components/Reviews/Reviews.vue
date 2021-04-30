@@ -3,7 +3,7 @@
         <v-divider id = "divivder"></v-divider>
         <br/>
 
-        <div id="overview">
+        <div id="overview" v-if="averageReview">
                 <div id = "star">
                     <span id = "star-five"></span>
                 </div>
@@ -35,22 +35,25 @@ import axios from 'axios';
 
             averageRating(){
                 console.log(this.reviews)
-                this.reviews.array.forEach(review => {
-                    this.averageRating += review.starRating
-                });
-                this.averageRating = this.averageRating / this.reviews.length;
+                for(let i = 0; i < this.reviews.length; i++){
+                    this.averageReview = this.averageReview + this.reviews[i].starValue;
+                }
+                this.averageReview = (this.averageReview / this.reviews.length).toFixed(1);
+                console.log(this.averageReview);
             }
         },
+
+    beforeUpdate(){
+        this.averageRating(this.reviews);
+    },
 
         data(){
             return{
-                averageReview: 0
+                averageReview: false
             }
-        },
-
-        mounted(){
-            this.averageRating();
         }
+
+       
 }
 </script>
 
