@@ -44,7 +44,7 @@
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
-        <Reviews/>
+        <Reviews v-bind:reviews="this.reviews"/>
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -101,15 +101,16 @@
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
-            console.log(resp.data);
             this.loaded = true
+            this.reviews = this.listing.reviews
           }
         )
     },
     data(){
         return{
           listing:null,
-          loaded:false
+          loaded:false,
+          reviews:null
         }
     },
     mounted(){

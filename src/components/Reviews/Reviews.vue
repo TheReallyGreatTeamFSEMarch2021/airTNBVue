@@ -1,23 +1,23 @@
 <template>
-    <div id="rootDiv">
+    <div id="rootReviewDiv">
         <v-divider id = "divivder"></v-divider>
-        <div v-if="reviewDataLoaded">
-            <div id="overview">
-                    <div id = "star">
-                        <span id = "star-five"></span>
-                    </div>
-                    <div id = "averageRating">
-                        <span id = "avgReview">{{this.averageReview}}</span>
-                    </div>
-            </div>
-            <div id="reviews">
-                
+        <br/>
+
+        <div id="overview">
+                <div id = "star">
+                    <span id = "star-five"></span>
+                </div>
+                <div id = "averageRating">
+                    <span id = "avgReview">{{this.averageReview}}</span>
+                </div>
+        </div>
+        <br/>
+        <div class="reviews">
+            <div v-for="review in reviews" :key="review.id" :id="review.id" class="review">
+                {{review.id}}
             </div>
         </div>
 
-        <div v-else>
-            <h2>No reviews for this listing</h2>
-        </div>
     </div>
 </template>
 
@@ -25,46 +25,27 @@
 import axios from 'axios';
     export default {
         name: 'Reviews',
-        props:{
-            
+        props: {
+            reviews:{
+                type: Object
+            }
         },
 
         methods:{
 
-            getAverageRating(){
-                this.reviews.forEach(rating => {
-                    this.averageReview = this.averageReview + rating.starValue;
-                });
-                this.averageReview = (this.averageReview / this.reviews.length).toFixed(1);
-                this.averageReview = this.averageReview + ' (' + this.reviews.length + ' reviews)'
-            },
-
-            sortReviewsByDate(){
-                console.log(typeof(this.reviews[0].date));
-                const sortedDates = this.reviews.sort((a,b) => b.date - a.date);
-                console.log(sortedDates);
-            }
         },
 
         data(){
             return{
-                reviews:[],
-                reviewDataLoaded: false,
-                averageReview: 0
+                averageReview: 0,
+                reviewList: null
             }
         },
 
         mounted(){
-            let listingId = this.$route.params.id;
-            axios.get('http://localhost:8080/api/review/getByListing/'+listingId)
-            .then(response => {
-                this.reviews = response.data;
-                if(this.reviews.length>0){
-                    this.reviewDataLoaded=true;
-                }
-                this.getAverageRating();
-                this.sortReviewsByDate();
-            })
+            this.reviewList = this.reviews;
+            console.log("Mounted");
+            console.log(this.reviewList);
         }
 }
 </script>
