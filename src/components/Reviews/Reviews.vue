@@ -1,5 +1,6 @@
 <template>
     <div id="rootDiv">
+        <v-divider id = "divivder"></v-divider>
         <div v-if="reviewDataLoaded">
             <div id="overview">
                     <div id = "star">
@@ -10,7 +11,7 @@
                     </div>
             </div>
             <div id="reviews">
-
+                
             </div>
         </div>
 
@@ -36,6 +37,12 @@ import axios from 'axios';
                 });
                 this.averageReview = (this.averageReview / this.reviews.length).toFixed(1);
                 this.averageReview = this.averageReview + ' (' + this.reviews.length + ' reviews)'
+            },
+
+            sortReviewsByDate(){
+                console.log(typeof(this.reviews[0].date));
+                const sortedDates = this.reviews.sort((a,b) => b.date - a.date);
+                console.log(sortedDates);
             }
         },
 
@@ -56,6 +63,7 @@ import axios from 'axios';
                     this.reviewDataLoaded=true;
                 }
                 this.getAverageRating();
+                this.sortReviewsByDate();
             })
         }
 }

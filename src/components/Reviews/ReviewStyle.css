@@ -1,21 +1,26 @@
 #overview{
-  
+    height: 500px;
+    border: 2px solid black;
 }
 
 #averageRating{
   border: 2px solid pink;
   display: flex;
-  height: 100%;
   font-size: 30px;
+  padding-top: 6.5px;
+  padding-bottom: 6.5px;
+  height: auto;
 }
 
 #star{
   padding-left: 5px;
   padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: 2px solid pink;
   float: left;
   display: flex;
-  height: 100%; 
+  height: auto;
 }
 
 #star-five {
