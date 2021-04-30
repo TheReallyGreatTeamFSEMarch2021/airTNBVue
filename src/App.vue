@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import Amenities from './components/Amenities/Amenities'
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 window.axios = require('axios');
@@ -21,7 +20,6 @@ export default {
   name: 'App',
 
   components: {
-    Amenities,
 
   }
 }
