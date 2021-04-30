@@ -47,7 +47,12 @@
         <Reviews/>
     </div>
     <div class="row col-12"> 
-        <h1>LOCATION</h1>
+        <h1 style="text-align:left">LOCATION</h1>
+        <GMap
+          v-if="listing"
+          :lat="listing.location.latitude"
+          :long="listing.location.longitude"      
+        />
     </div>
     <div class="row col-12"> 
         <h1>HOSTED BY</h1>
@@ -57,6 +62,10 @@
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
+        <MorePlaces
+          :listing="listing"
+          v-if="listing"
+          />
     </div>
     <div class="row col-12"> 
         <h1>THINGS TO DO NEARBY</h1>
@@ -70,30 +79,37 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
+  import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
   import axios from 'axios';
+  import MorePlaces from '../MorePlaces'
   export default {
     name: 'ListingShow',
     components: {
         PhotoGallery,
         Reviews
+        MorePlaces,
+        GMap
     },  
     props: {
       
     },
 
-    created(){
+    beforeMount(){
         let listingId = this.$route.params.id;
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
+            console.log(resp.data);
+            this.loaded = true
           }
         )
     },
     data(){
         return{
-          listing:{}
+          listing:null,
+          loaded:false
         }
     },
     mounted(){

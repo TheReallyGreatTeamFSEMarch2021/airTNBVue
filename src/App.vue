@@ -5,7 +5,7 @@
     <div class="row col-12">
       <h1>NavBar Vue Component</h1>
     </div>
-    <router-view></router-view>  
+    <router-view :key="$route.fullPath"></router-view>  
 
   </div>
 </template>
