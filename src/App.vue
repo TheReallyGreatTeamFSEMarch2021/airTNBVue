@@ -36,7 +36,6 @@ export default {
   margin-top: 60px;
 }
 #app * {
-  border: 1px solid green;
   box-sizing: border-box;
 }
 
