@@ -5,8 +5,8 @@
     <div class="row col-12">
       <h1>NavBar Vue Component</h1>
     </div>
-    <router-view></router-view> 
-    <Amenities/> 
+    <router-view :key="$route.fullPath"></router-view>  
+
 
   </div>
 </template>
@@ -38,7 +38,6 @@ export default {
   margin-top: 60px;
 }
 #app * {
-  border: 1px solid green;
   box-sizing: border-box;
 }
 

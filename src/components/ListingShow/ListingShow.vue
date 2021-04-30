@@ -44,6 +44,7 @@
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
+        <Reviews v-bind:reviews="this.reviews"/>
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -61,6 +62,10 @@
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
+        <MorePlaces
+          :listing="listing"
+          v-if="listing"
+          />
     </div>
     <div class="row col-12"> 
         <h1>THINGS TO DO NEARBY</h1>
@@ -76,15 +81,29 @@
 <script>
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
+  import Reviews from "../Reviews/Reviews.vue";
   import axios from 'axios';
+  import MorePlaces from '../MorePlaces'
   export default {
     name: 'ListingShow',
     components: {
         PhotoGallery,
+        Reviews,
+        MorePlaces,
         GMap
     },  
     props: {
       
+    },
+
+    methods:{
+
+        sortReviewsByDate(reviews){
+            for(let i = 0; i < reviews.length; i++){
+                this.reviews[i].date = new Date(this.reviews[i].date)
+            }
+            this.reviews.sort((a, b) => b.date - a.date)
+        }
     },
 
     beforeMount(){
@@ -92,15 +111,17 @@
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
-            console.log(resp.data);
             this.loaded = true
+            this.reviews = this.listing.reviews
+            this.sortReviewsByDate(this.listing.reviews)
           }
         )
     },
     data(){
         return{
-          listing:{},
-          loaded:false
+          listing:null,
+          loaded:false,
+          reviews:null
         }
     },
     mounted(){
