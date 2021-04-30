@@ -4,11 +4,8 @@
     <img v-if="photo.length>2" :src="photo" alt="">
     <div>
         <div>
-            <i v-if="avgRating>0" class="fas fa-star"></i>
-            <i v-if="avgRating>1" class="fas fa-star"></i>
-            <i v-if="avgRating>2" class="fas fa-star"></i>
-            <i v-if="avgRating>3" class="fas fa-star"></i>
-            <i v-if="avgRating>4" class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
             {{avgRating}} ({{listing.reviews.length}})
         </div>
         <!-- <span style="font-size:10px">{{avgRating}} average rating with {{listing.reviews.length}} reviews </span> -->
@@ -62,13 +59,10 @@ img{
     margin-bottom:auto;
 }
 i{
-    color:yellow
+    color:#ff5a5f
 }
 a {
     text-decoration: none;
-}
-span { 
-
 }
 .container{
     display:flex;
