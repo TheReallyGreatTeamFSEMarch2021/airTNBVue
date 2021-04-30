@@ -4,10 +4,27 @@
             Sleeping Arrangements
         </div>
         <div v-for="room of rooms" :key="room.id" class="roomCard">
+            <div id="bedIcons">
+                <div v-for="(room, i) in room.kBeds" :key="'K'+i" class="iconContainer">
+                    <img src="https://i.imgur.com/pK7ECnV.png" alt="" class="icon"/>
+                </div>
+                <div v-for="(room, i) in room.qBeds" :key="'Q'+i" class="iconContainer">
+                    <img src="https://i.imgur.com/pK7ECnV.png" alt="" class="icon"/>
+                </div>
+                <div v-for="(room, i) in room.dBeds" :key="'D'+i" class="iconContainer">
+                    <img src="https://i.imgur.com/pK7ECnV.png" alt="" class="icon"/>
+                </div>
+                <div v-for="(room, i) in room.sBeds" :key="'S'+i" class="iconContainer">
+                    <img src="https://i.imgur.com/jyD34uB.png" alt="" class="icon"/>
+                </div>
+                <div v-for="(room, i) in room.cBeds" :key="'C'+i" class="iconContainer">
+                    <img src="https://i.imgur.com/uM2PbU7.png" alt="" class="icon"/>
+                </div>
+            </div>
             <div id="roomName">
                 {{room.name}}
             </div>
-            <div class="beds">
+            <div class="bedList">
                 {{room.beds}}
             </div>
         </div>
