@@ -61,6 +61,10 @@
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
+        <MorePlaces
+          :listing="listing"
+          v-if="listing"
+          />
     </div>
     <div class="row col-12"> 
         <h1>THINGS TO DO NEARBY</h1>
@@ -77,10 +81,12 @@
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import axios from 'axios';
+  import MorePlaces from '../MorePlaces'
   export default {
     name: 'ListingShow',
     components: {
         PhotoGallery,
+        MorePlaces,
         GMap
     },  
     props: {
@@ -99,7 +105,7 @@
     },
     data(){
         return{
-          listing:{},
+          listing:null,
           loaded:false
         }
     },
