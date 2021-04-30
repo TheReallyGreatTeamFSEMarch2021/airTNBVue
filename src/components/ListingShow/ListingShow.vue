@@ -89,7 +89,7 @@
   export default {
     name: 'ListingShow',
     components: {
-        Description
+        Description,
         PhotoGallery,
         MorePlaces,
         GMap
