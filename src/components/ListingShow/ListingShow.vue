@@ -44,6 +44,7 @@
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
+        <Reviews/>
     </div>
     <div class="row col-12"> 
         <h1>LOCATION</h1>
@@ -70,11 +71,13 @@
 </style>
 <script>
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
+  import Reviews from "../Reviews/Reviews.vue";
   import axios from 'axios';
   export default {
     name: 'ListingShow',
     components: {
-        PhotoGallery
+        PhotoGallery,
+        Reviews
     },  
     props: {
       
