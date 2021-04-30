@@ -5,13 +5,14 @@
     <div class="row col-12">
       <h1>NavBar Vue Component</h1>
     </div>
-    <router-view></router-view>  
+    <router-view></router-view> 
+    <Amenities/> 
 
   </div>
 </template>
 
 <script>
-
+import Amenities from './components/Amenities/Amenities'
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 window.axios = require('axios');
@@ -20,6 +21,7 @@ export default {
   name: 'App',
 
   components: {
+    Amenities,
 
   }
 }
