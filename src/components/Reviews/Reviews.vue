@@ -27,25 +27,29 @@ import axios from 'axios';
         name: 'Reviews',
         props: {
             reviews:{
-                type: Object
+                type: Array
             }
         },
 
         methods:{
 
+            averageRating(){
+                console.log(this.reviews)
+                this.reviews.array.forEach(review => {
+                    this.averageRating += review.starRating
+                });
+                this.averageRating = this.averageRating / this.reviews.length;
+            }
         },
 
         data(){
             return{
-                averageReview: 0,
-                reviewList: null
+                averageReview: 0
             }
         },
 
         mounted(){
-            this.reviewList = this.reviews;
-            console.log("Mounted");
-            console.log(this.reviewList);
+            this.averageRating();
         }
 }
 </script>
