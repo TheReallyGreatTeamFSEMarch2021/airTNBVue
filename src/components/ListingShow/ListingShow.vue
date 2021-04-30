@@ -39,7 +39,7 @@
       </div>
       
       <div class="col-3"> 
-        <h2> Select dates</h2>
+        <Price :price = "this.listing.price" />
       </div>   
     </div>
     <div class="row col-12"> 
@@ -78,6 +78,7 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
+  import Price from '../Price/Price.vue'
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import axios from 'axios';
@@ -85,6 +86,7 @@
   export default {
     name: 'ListingShow',
     components: {
+        Price,
         PhotoGallery,
         MorePlaces,
         GMap
