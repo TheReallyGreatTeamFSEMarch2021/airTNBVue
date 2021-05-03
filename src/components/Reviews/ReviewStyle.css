@@ -1,16 +1,46 @@
 #overview{
     height: auto;
-    border: 2px solid black;
+}
+
+.firstName{
+  float: left;
+  padding-left: 25px;
+}
+
+.date{
+  float: left;
+  padding-left: 25px;
 }
 
 .reviews{
     border: 2px solid green;
+    position: relative;
+    display:flex;
+    overflow: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .review{
+    display: flex;
     width: 45%;
     float: left;
+    padding-bottom: 10px;
     border: 2px solid black;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.reviewInfo{
+  border: 2px solid pink;
+  width: 25%;
+  overflow: auto;
+  padding: 5px;
+}
+
+.reviewContent{
+  float: left;
+  padding-top: 5px;
 }
 
 #averageRating{
