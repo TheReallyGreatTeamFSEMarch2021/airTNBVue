@@ -13,7 +13,8 @@
           <img v-bind:src="`${photos[3].url}`" alt="photo" width="100%" height="100%">
         </div>
         <div id="c5" class="littleContainer">
-          <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="100%">
+          <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="auto">
+          <button class="btn">Show All Photos</button>
         </div>
   </div>
 </template>
