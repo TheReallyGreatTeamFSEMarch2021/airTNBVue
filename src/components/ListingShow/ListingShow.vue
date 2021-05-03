@@ -28,7 +28,7 @@
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
-            <Amenities/>
+            <Amenities  v-if="listing" :id="listing.id"/>
           </div>
           <div class="col-12">
               <h1>Calendar</h1>

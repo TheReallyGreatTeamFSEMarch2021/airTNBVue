@@ -16,6 +16,7 @@ export default {
   name: 'Amenities',
   
   props: {
+    id: Number
 
   },
 
@@ -31,9 +32,7 @@ export default {
   },
 
   mounted(){
-
-      let listingId = this.$route.params.id;
-        axios.get('http://localhost:8080/api/amenity/getByListingId/'+listingId)
+        axios.get('http://localhost:8080/api/amenity/getByListingId/'+this.id)
         .then(response => {
             this.list = response.data;
             
