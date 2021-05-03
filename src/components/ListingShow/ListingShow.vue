@@ -27,12 +27,12 @@
       </div>
       
       <div class="col-3"> 
-        <Price :price = "this.listing.price" />
+        <Price :listing = "this.listing" />
       </div>   
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
-        <Reviews v-bind:reviews="this.reviews"/>
+       <Reviews v-bind:reviews="this.reviews"/>
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
