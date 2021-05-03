@@ -18,6 +18,6 @@ export default new Router({
             path: '/',
             name: 'ListingIndexPage',
             component: () => import('@/components/ListingIndex/ListingIndex')
-          }
+          },
     ]
 })
