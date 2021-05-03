@@ -6,32 +6,36 @@
     text-transform: none;
     margin: 10px;
 }
-#calendar{
+
+#calendar {
     margin: 10px;
 }
-#title{
+
+#title {
     margin: 20px;
 }
-#pricePerNight{
+
+#pricePerNight {
     font-weight: bold;
     float: left;
 }
-#reviews{
+
+#reviews {
     float: right;
 }
-#grandTotal{
+
+#grandTotal {
     font-weight: bold;
 }
-#chargeBreakdown{
+
+#chargeBreakdown {
     text-align: left;
 }
-.charges{
-    
-}
-.chargePrice{
-    
-}
 
-p{
+.charges {}
+
+.chargePrice {}
+
+p {
     margin: 10px;
 }

@@ -8,39 +8,49 @@
           <!--<Reviews :reviews="this.listing.reviews"/>-->
         </span>
       </div>
-      <br>
+      <br />
       <div id="calendar">[Calendar Goes here]</div>
       <v-btn elevation="2" id="reserveBtn" outlined text>Reserve</v-btn>
       <p>You won't be charged yet</p>
       <table>
-<tr>
-            <td class="charges">
-              <v-dialog>
-                <template>
-
-                </template>
-              </v-dialog>
-              ${{ this.listing.price }} x {{ this.daysSelected }} nights
-              </td>
-            <td class="chargePrice">${{ this.listing.price * this.daysSelected }}</td>
-          </tr>
-          <tr>
-            <td class="charges">Cleaning Fee</td>
-            <td class="chargePrice">${{ this.cleaningFee }}</td>
-          </tr>
-          <tr>
-            <td class="charges">Service Fee</td>
-            <td class="chargePrice">${{ this.serviceFee }}</td>
-          </tr>
-          <tr>
-            <td class="charges">Occupancy Taxes and Fees</td>
-            <td class="chargePrice">${{ this.occupancyTaxesAndFees }}</td>
-          </tr>
-          <tr><td><hr></td><td><hr></td></tr>
-          <tr id="grandTotal">
-            <td class="charges">Total</td>
-            <td  class="chargePrice">${{this.listing.price * this.daysSelected + this.cleaningFee + this.serviceFee + this.occupancyTaxesAndFees}}</td>
-          </tr>
+        <tr>
+          <td class="charges">
+            <v-dialog>
+              <template> </template>
+            </v-dialog>
+            ${{ this.listing.price }} x {{ this.daysSelected }} nights
+          </td>
+          <td class="chargePrice">
+            ${{ this.listing.price * this.daysSelected }}
+          </td>
+        </tr>
+        <tr>
+          <td class="charges">Cleaning Fee</td>
+          <td class="chargePrice">${{ this.cleaningFee }}</td>
+        </tr>
+        <tr>
+          <td class="charges">Service Fee</td>
+          <td class="chargePrice">${{ this.serviceFee }}</td>
+        </tr>
+        <tr>
+          <td class="charges">Occupancy Taxes and Fees</td>
+          <td class="chargePrice">${{ this.occupancyTaxesAndFees }}</td>
+        </tr>
+        <tr>
+          <td><hr /></td>
+          <td><hr /></td>
+        </tr>
+        <tr id="grandTotal">
+          <td class="charges">Total</td>
+          <td class="chargePrice">
+            ${{
+              this.listing.price * this.daysSelected +
+              this.cleaningFee +
+              this.serviceFee +
+              this.occupancyTaxesAndFees
+            }}
+          </td>
+        </tr>
       </table>
     </div>
   </v-card>
@@ -50,12 +60,12 @@
 </style>
 <script>
 import axios from "axios";
-import Reviews from "../Reviews/Reviews.vue"
+import Reviews from "../Reviews/Reviews.vue";
 export default {
   name: "Price",
-   components: {
-        //Reviews,
-    },  
+  components: {
+    //Reviews,
+  },
   props: ["listing"],
   data() {
     return {
