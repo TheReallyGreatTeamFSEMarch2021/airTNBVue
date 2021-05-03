@@ -10,20 +10,7 @@
 
      <div class="row col-12">
       <div class="col-9">
-        <description :listingId="this.$route.params.id" :listing="this.listing" v-if="listing"/>
-        <!--
-          <div class="col-12">
-            <h2> Description 1</h2>
-            <p>Entire home</p>
-            <p>Enhanced Clean</p>
-            <p>Self check-in</p>
-          </div>
-          <div class="col-12">
-            <h2> Description 2</h2>
-            <p>Vintage & repurposed finds make this space unique with modern upscale amenities and appliances. This cozy cool industrial space is the perfect place to wind down & get cozy after a day of exploring WNY!
-            </p>
-          </div>
-          -->
+        <description :listing="this.listing" v-if="listing"/>
           <div class="col-12">
             <h2> Sleeping Arrangemnets</h2>
             BEDROOM1 - 1 Queen Bed
@@ -85,7 +72,7 @@
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
-  import Description from "../DescriptionBox/Description.vue";
+  import Description from "../Description/Description.vue";
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
   export default {

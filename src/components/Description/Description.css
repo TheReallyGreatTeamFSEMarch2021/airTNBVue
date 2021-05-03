@@ -26,6 +26,7 @@ float: right
 .grid-container {
     display: grid;
     grid-template-columns: 50px auto;
+    margin: 20px;
 }
 .detailHeading{
     font-weight: 400 !important;
@@ -41,4 +42,7 @@ float: right
     text-align: left;
     padding-top:9px;
     padding-left: 20px;
+}
+.fas {
+    size: 122px;
 }

@@ -3,7 +3,7 @@
       <div id="descriptionHeader">
          <h3>{{this.listing.subTitle}}</h3>
          <div class="detailSubHeading">
-            <span> [0] guests</span><span>{{data.typeOfPlace}}</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
+            <span> [0] guests</span><span>[Type of Place]</span><span>[0] beds</span><span>[0] bath</span> <span id="hostImage">[HostImage]</span>    
          </div>
       </div>
       <hr>
@@ -11,9 +11,10 @@
          <div class="grid-container">
             <div class="">
                <span class="detailIcon">
-                  <v-img
-                     src="../../assets/home.png">
+                  <v-img>
+                        <i class="fas fa-home fa-3x"></i>
                   </v-img>
+                  
                </span>
             </div>
             <div class="subDetail">
@@ -22,21 +23,21 @@
                </span>
                <br>
                <span class="detailSubHeading">
-               You'll have the {{data.typeOfPlace}} to yourself.
+               You'll have the [Type of place] to yourself.
                </span>
             </div>
          </div>
          <div class="grid-container">
             <div class="">
                <span class="detailIcon">
-                  <v-img
-                     src="../../assets/calendar.png">
+                  <v-img>
+                     <i class="fas fa-calendar-alt fa-3x"></i>
                   </v-img>
                </span>
             </div>
             <div class="subDetail">
                <span class="detailHeading">
-               Free cancellation until {{data.cancellationDate}}
+               Free cancellation until {{listing.freeCancellationDays}}
                </span>
                <br>
                <span class="detailSubHeading">
@@ -47,9 +48,8 @@
          <div class="grid-container">
             <div class="">
                <span class="detailIcon">
-                  <v-img
-                     
-                     src="../../assets/clean.png">
+                  <v-img>
+                     <i class="fas fa-hand-sparkles fa-3x"></i>
                   </v-img>
                </span>
             </div>
@@ -66,8 +66,8 @@
          <div class="grid-container">
             <div class="">
                <span class="detailIcon">
-                  <v-img
-                     src="../../assets/rules.png">
+                  <v-img>
+                     <i class="fas fa-clipboard-list fa-3x"></i>
                   </v-img>
                </span>
             </div>
@@ -98,49 +98,16 @@
   export default {
     name: 'DescriptionBox',
     
-    props: ['listingId','listing'],
+    props: ['listing'],
     data(){
         return{
           'data': ''
         }
     },
     created(){
-       axios({
-              method: 'GET',
-              url: `http://localhost:8080/api/description/${this.listingId}`,
-              headers: '',
-          })
-          .then(response=>{
-              //console.table(response.data)
-              this.data = response.data
-              if(this.data === null){
-                 this.data = {
-                    typeOfPlace:'Unknown Place',
-                    cancellationDate: '01/01/2000',
-                    smallDescription: 'This listing does not exist.'
-                 }
-              }
-          })
-          .catch((error) => {
-              switch(error.response.status){
-                  case 400:
-                      console.error('An error has occurred.')
-                      break;
-                  case 404:
-                      console.error('Not found')
-                      break;
-                  case 401:
-                      console.error('Not allowed')
-                      break;
-                  case 500:
-                      console.error('Server error')
-                      break;
-                  default:
-                      console.error('Unknown error has occurred.')
-                      break;
-              }
-          })
-         
-    },
+       console.log("PRINTING")
+       console.log(this.listing)
+    }
+    
   }
 </script>
