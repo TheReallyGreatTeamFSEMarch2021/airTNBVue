@@ -7,11 +7,11 @@
     </div>
     <router-view :key="$route.fullPath"></router-view>  
 
+
   </div>
 </template>
 
 <script>
-
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 window.axios = require('axios');
@@ -20,6 +20,7 @@ export default {
   name: 'App',
 
   components: {
+
 
   }
 }
@@ -36,7 +37,6 @@ export default {
   margin-top: 60px;
 }
 #app * {
-  border: 1px solid green;
   box-sizing: border-box;
 }
 
