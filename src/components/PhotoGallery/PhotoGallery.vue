@@ -23,12 +23,11 @@
 <script>
 import axios from 'axios';
 
-
 export default {
   name: 'PhotoGallery',
   
   props: {
- 
+
   },
 
   data(){
