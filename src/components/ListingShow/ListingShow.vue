@@ -18,9 +18,7 @@
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
-            <p>Wifi</p>
-            <p>Air Conditioning</p>
-            <p>Kitchen</p>
+            <Amenities  v-if="listing" :id="listing.id"/>
           </div>
           <div class="col-12">
               <h1>Calendar</h1>
@@ -75,6 +73,7 @@
   import Description from "../Description/Description.vue";
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
+  import Amenities from '../Amenities/Amenities'
   export default {
     name: 'ListingShow',
     components: {
@@ -82,7 +81,8 @@
         PhotoGallery,
         Reviews,
         MorePlaces,
-        GMap
+        GMap,
+        Amenities,
     },  
     props: {
       

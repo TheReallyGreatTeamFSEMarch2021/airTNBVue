@@ -1,31 +1,38 @@
 <template>
-  <div>
-      <h1>{{list[0].value}}</h1>
-  </div>
+<div>
+  <div :key="amenity.id" v-for="amenity in list">
+       <Amenity :amenity = "amenity"/>
+    </div>
+</div>
 </template>
 
 <style scoped src="./Amenities.css">
 </style>
 <script>
 import axios from 'axios';
-
+import Amenity from '../Amenity/Amenity'
 
 export default {
   name: 'Amenities',
   
   props: {
- 
+    id: Number
+
   },
 
   data(){
       return{
-          list:[],
+          list: Array,
           
       }
   },
+  components: {
+    Amenity
+
+  },
 
   mounted(){
-        axios.get('http://localhost:8080/api/amenity/getByListingId/1')
+        axios.get('http://localhost:8080/api/amenity/getByListingId/'+this.id)
         .then(response => {
             this.list = response.data;
             
