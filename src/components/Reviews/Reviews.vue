@@ -12,12 +12,13 @@
                 </div>
         </div>
         <br/>
+        <!--
         <div class="reviews">
             <div v-for="review in reviews" :key="review.id" :id="review.id" class="review">
                 {{review.id}}
             </div>
         </div>
-
+        -->
     </div>
 </template>
 
@@ -46,7 +47,10 @@ import axios from 'axios';
             }
 
         },
-
+    created(){
+        this.averageRating(this.reviews);
+        this.sortReviewsByDate();
+    },
     beforeUpdate(){
         this.averageRating(this.reviews);
         this.sortReviewsByDate();

@@ -3,10 +3,7 @@
     <div>
       <div id="title">
         <span id="pricePerNight">${{ this.listing.price }} / night</span>
-        <span id="reviews">
-          [REVIEWS GOES HERE]
-          <!--<Reviews :reviews="this.listing.reviews"/>-->
-        </span>
+        <Reviews id="reviews" v-bind:reviews="this.listing.reviews" />
       </div>
       <br />
       <div id="calendar">[Calendar Goes here]</div>
@@ -59,12 +56,11 @@
 <style scoped src="./Price.css">
 </style>
 <script>
-import axios from "axios";
 import Reviews from "../Reviews/Reviews.vue";
 export default {
   name: "Price",
   components: {
-    //Reviews,
+    Reviews,
   },
   props: ["listing"],
   data() {

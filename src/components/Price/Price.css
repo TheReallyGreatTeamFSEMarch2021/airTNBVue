@@ -21,7 +21,7 @@
 }
 
 #reviews {
-    float: right;
+text-align: right;
 }
 
 #grandTotal {

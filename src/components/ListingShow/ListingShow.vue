@@ -32,7 +32,7 @@
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
-       <Reviews v-bind:reviews="this.reviews"/>
+       <!--<Reviews v-bind:reviews="this.reviews"/>-->
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -81,7 +81,7 @@
         Description,
         Price,
         PhotoGallery,
-        Reviews,
+        //Reviews,
         MorePlaces,
         GMap,
         Amenities,
