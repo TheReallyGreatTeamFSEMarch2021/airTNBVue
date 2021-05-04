@@ -1,11 +1,9 @@
 <template>
     <div id="rootReviewDiv">
-        <v-divider id = "divivder"></v-divider>
-        <br/>
-
         <div id="overview" v-if="averageReview">
                 <div id = "star">
-                    <span id = "star-five"></span>
+                    <!-- <span id = "star-five"></span>-->
+                    <i class="fas fa-star fa-sm"></i>
                 </div>
                 <div id = "averageRating">
                     <span id = "avgReview">{{this.averageReview}}</span>

@@ -2,8 +2,11 @@
   <v-card elevation="2" class="mx-auto" max-width="344" outlined>
     <div>
       <div id="title">
-        <span id="pricePerNight">${{ this.listing.price }} / night</span>
-        <Reviews id="reviews" v-bind:reviews="this.listing.reviews" />
+        <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
+        <span id="reviews">
+          <Reviews :reviews="this.listing.reviews" />
+        </span>
+        
       </div>
       <br />
       <div id="calendar">[Calendar Goes here]</div>
@@ -12,9 +15,6 @@
       <table>
         <tr>
           <td class="charges">
-            <v-dialog>
-              <template> </template>
-            </v-dialog>
             ${{ this.listing.price }} x {{ this.daysSelected }} nights
           </td>
           <td class="chargePrice">

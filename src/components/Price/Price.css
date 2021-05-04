@@ -16,12 +16,14 @@
 }
 
 #pricePerNight {
-    font-weight: bold;
+    margin: 0px;
     float: left;
 }
 
 #reviews {
-text-align: right;
+    margin: 0px;
+    text-align: right;
+    float:right;
 }
 
 #grandTotal {
