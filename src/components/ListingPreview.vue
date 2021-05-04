@@ -34,12 +34,9 @@ export default {
           return avg.toPrecision(3);
       }  
     },
-    created(){        
-            axios.get('http://localhost:8080/api/photo/getByListingId/'+this.listing.id).then(
-                (resp)=> {
-                    this.photo = resp.data[0].url; 
-                }
-            )
+    created(){ 
+            if(this.listing.photos && this.listing.photos.length>0)     
+                this.photo=this.listing.photos[0].url  
             let average = this.getAvg();
             this.avgRating=average;
     },
