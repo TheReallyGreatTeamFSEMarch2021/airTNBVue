@@ -7,11 +7,11 @@
     </div>
     <router-view :key="$route.fullPath"></router-view>  
 
+
   </div>
 </template>
 
 <script>
-
 //can pass in props through the component
 //they have lifecycle methods -- can make axios calls through the lifecycle methods
 window.axios = require('axios');
