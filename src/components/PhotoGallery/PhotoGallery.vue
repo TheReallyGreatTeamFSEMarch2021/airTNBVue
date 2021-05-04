@@ -32,10 +32,6 @@ export default {
             }
   },
 
-  updated(){
-    console.log(this.photos)
-  },
-  
   data(){
       return{
           bDataLoaded: true
