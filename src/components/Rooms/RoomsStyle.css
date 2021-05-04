@@ -1,8 +1,6 @@
 #rooms{
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid grey;
     height: 300px;
-    width: 800px;
     margin: 0 auto;
 }
 
