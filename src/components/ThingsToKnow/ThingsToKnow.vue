@@ -20,9 +20,9 @@
         <p v-if="listing.healthAndSafetyInfo.enhancedCleaning">Committed to AirTNP's enhanced cleaning process</p>
         <p>AirTNP's social-distancing and other COVID-19-related guidelines apply</p>
         <p v-if="listing.healthAndSafetyInfo.cameraInfo!=null">Security camera/recording device</p>
-        <p v-if='listing.ruleList.smokeAlarm'>Smoke alarm</p>
+        <p v-if='listing.healthAndSafetyInfo.smokeAlarm'>Smoke alarm</p>
         <p v-else>No smoke alarm reported</p>
-        <p v-if='listing.ruleList.cMonAlarm'>Carbon monoxide alarm</p>
+        <p v-if='listing.healthAndSafetyInfo.cMonAlarm'>Carbon monoxide alarm</p>
         <p v-else>No carbon monoxide alarm reported</p>
 
     </div>
@@ -43,7 +43,7 @@
     },
     data(){
         return{
-          regex: new RegExp("SELF_*")
+          regex: new RegExp("^SELF_.*$")
           
         }
     },
