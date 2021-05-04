@@ -11,7 +11,7 @@
       <div class="col-9">
         <description :listing="this.listing" v-if="listing"/>
           <div class="col-12">
-            <Rooms/>  
+            <Rooms v-bind:rooms="this.rooms"/>  
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
@@ -106,6 +106,7 @@
             this.reviews = this.listing.reviews
             this.sortReviewsByDate(this.listing.reviews)
             this.photos = this.listing.photos;
+            this.rooms = this.listing.rooms;
           }
         ).catch(error=>{
           this.listing = null;
@@ -117,7 +118,8 @@
           listing:null,
           loaded:false,
           reviews:null,
-          photos:null
+          photos:null,
+          rooms:null
         }
     },
     mounted(){
