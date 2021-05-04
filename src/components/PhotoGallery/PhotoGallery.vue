@@ -1,5 +1,5 @@
 <template>
-  <div v-if="bDataLoaded" id="gallery">
+  <div v-if="this.photos && this.photos.length > 4" id="gallery">
         <div id="c1" class="bigContainer">
           <img v-bind:src="`${photos[0].url}`" alt="photo" width="100%" height="100%">
         </div>
@@ -13,8 +13,7 @@
           <img v-bind:src="`${photos[3].url}`" alt="photo" width="100%" height="100%">
         </div>
         <div id="c5" class="littleContainer">
-          <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="auto">
-          <button class="btn">Show All Photos</button>
+          <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="100%">
         </div>
   </div>
 </template>
@@ -28,26 +27,20 @@ export default {
   name: 'PhotoGallery',
   
   props: {
-
+    photos:{
+                type: Array
+            }
   },
 
+  updated(){
+    console.log(this.photos)
+  },
+  
   data(){
       return{
-          photos:[],
-          bDataLoaded: false
+          bDataLoaded: true
       }
   },
 
-  mounted(){
-        let listingId = this.$route.params.id;
-
-        axios.get('http://localhost:8080/api/photo/getByListingId/'+listingId)
-        .then(response => {
-            this.photos = response.data;
-            if(this.photos.length > 0){
-              this.bDataLoaded = true;
-            }
-        })
-  }
 }
 </script>
