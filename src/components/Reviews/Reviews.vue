@@ -24,7 +24,6 @@
             <div v-for="review in reviews" :key="review.id" :id="review.id" class="review">
                 <div class="reviewInfo">
                     <p class="firstName"><b>{{review.userFirstName}}</b></p>
-                    <br/>
                     <p class="date">{{getCalendarMonth(review.date)}}</p>
                 </div>
                 <br/>

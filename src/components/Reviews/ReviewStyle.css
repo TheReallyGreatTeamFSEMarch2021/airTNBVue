@@ -4,16 +4,17 @@
 
 .firstName{
   float: left;
-  padding-left: 25px;
+  margin-left: 10px;
 }
 
 .date{
   float: left;
-  padding-left: 25px;
+  margin-left: 10px;
+  font-size: 12px;
+  display: flex;
 }
 
 .reviews{
-    border: 2px solid green;
     position: relative;
     display:flex;
     overflow: auto;
@@ -26,13 +27,12 @@
     width: 45%;
     float: left;
     padding-bottom: 10px;
-    border: 2px solid black;
     margin-left: 20px;
     margin-right: 20px;
 }
 
 .reviewInfo{
-  border: 2px solid pink;
+  display: block;
   width: 25%;
   overflow: auto;
   padding: 5px;
@@ -41,6 +41,7 @@
 .reviewContent{
   float: left;
   padding-top: 5px;
+  width: 60%;
 }
 
 #averageRating{
