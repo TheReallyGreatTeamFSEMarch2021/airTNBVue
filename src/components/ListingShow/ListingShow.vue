@@ -47,7 +47,7 @@
         <h1>HOSTED BY</h1>
     </div>
     <div class="row col-12"> 
-        <things-to-know/>
+        <ThingsToKnow v-if="listing" v-bind:listing="this.listing"/>
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
