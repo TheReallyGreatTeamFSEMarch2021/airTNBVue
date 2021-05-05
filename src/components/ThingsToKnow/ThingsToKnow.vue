@@ -1,8 +1,8 @@
 <template>
     <div v-if="listing" id="thingsToKnow">
     <h3>Things To Know</h3>
-    <HouseRules v-if="listing" v-bind:listing="listing"/>
-    <HealthAndSafetyInfo v-if="listing" v-bind:listing="listing"/>
+    <HouseRules v-if="listing" v-bind:ruleList="listing.ruleList"/>
+    <HealthAndSafetyInfo v-if="listing" v-bind:healthAndSafetyInfo="listing.healthAndSafetyInfo"/>
     <CancellationPolicy v-if="listing" v-bind:listing="listing"/>
     </div>
 </template>
