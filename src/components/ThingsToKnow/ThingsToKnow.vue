@@ -3,9 +3,7 @@
     <h3>Things To Know</h3>
     <HouseRules v-if="listing" v-bind:listing="listing"/>
     <HealthAndSafetyInfo v-if="listing" v-bind:listing="listing"/>
-    <div class="row col-4">
-        <h4>Cancellation policy</h4>
-    </div>
+    <CancellationPolicy v-if="listing" v-bind:listing="listing"/>
     </div>
 </template>
 
@@ -14,11 +12,13 @@
 <script>
   import HouseRules from "./HouseRules/HouseRules";
   import HealthAndSafetyInfo from "./HealthAndSafetyInfo/HealthAndSafetyInfo";
+  import CancellationPolicy from "./CancellationPolicy/CancellationPolicy";
   export default {
     name: 'ThingsToKnow',
     components: {
       HouseRules,
-      HealthAndSafetyInfo
+      HealthAndSafetyInfo,
+      CancellationPolicy
 
     },
     props: {
