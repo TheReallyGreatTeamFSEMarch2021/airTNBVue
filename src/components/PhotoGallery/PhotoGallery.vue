@@ -14,15 +14,16 @@
         </div>
         <div id="c5" class="littleContainer">
           <img v-bind:src="`${photos[4].url}`" alt="photo" width="100%" height="100%">
-          <button class='showbtn' @click='toggle = !toggle'>Show All Photos</button>
+          <button class='showbtn' @click='showGallery'>Show All Photos</button>
         </div>
+        
         <div v-show='toggle' id='fullGallery'>
           <button class='hidebtn' @click='toggle = !toggle'>X</button>
           <div id='gallery'>
             <div id="prev" @click="prevPhoto"> &lt; </div>
             <div id="photoDisplay">
               <div id='photoContainer'>
-                <img v-bind:src="`${displayUrl}`">
+                <img v-bind:src="`${displayUrl}`" id='displayImage'>
               </div> 
             </div>
             <div id="next" @click="nextPhoto"> &gt; </div>
@@ -51,18 +52,36 @@ export default {
       return{
           bDataLoaded: true,
           toggle: false,
-          displayUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg"
+          displayUrl: "",
+          currPhoto: 0
       }
   },
 
+
   methods:{
+    showGallery: function(){
+      this.toggle = !this.toggle
+      this.displayUrl = this.photos[0].url;
+    },
+
     prevPhoto: function(){
-      console.log("prev");
-      this.displayUrl = "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
+      if(this.currPhoto == 0){
+        this.currPhoto = this.photos.length - 1;
+      }
+      else{
+        this.currPhoto = this.currPhoto - 1;
+      }
+      this.displayUrl = this.photos[this.currPhoto].url;
     },
 
     nextPhoto: function(){
-      console.log('next');
+      if(this.currPhoto == this.photos.length - 1){
+        this.currPhoto = 0
+      }
+      else{
+        this.currPhoto = this.currPhoto + 1;
+      }
+      this.displayUrl = this.photos[this.currPhoto].url;
     }
 
   }
