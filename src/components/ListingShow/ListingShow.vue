@@ -19,7 +19,11 @@
             <Amenities  v-if="listing" :id="listing.id"/>
           </div>
           <div class="col-12">
-              <h1>Calendar</h1>
+              <v-app>
+                 <v-content>
+                   <Calendar  v-if="listing" :listing="listing"/>
+                </v-content>
+             </v-app>
           </div>
         
       </div>
@@ -73,6 +77,7 @@
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
   import Amenities from '../Amenities/Amenities'
+  import Calendar from '../Calendar/Calendar'
   export default {
     name: 'ListingShow',
     components: {
@@ -82,7 +87,8 @@
         MorePlaces,
         GMap,
         Rooms,
-        Amenities
+        Amenities,
+        Calendar,
     },  
     props: {
       
