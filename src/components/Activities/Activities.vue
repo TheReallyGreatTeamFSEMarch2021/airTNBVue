@@ -1,7 +1,11 @@
 <template>
-    <div>
+    <div id ="activitiesBox">
         <h3>Hello Activities</h3>
-        <p>{{location.city}}</p>
+        <div 
+            :key="activity.id" v-for="activity in activities" >
+            {{activity.id}}
+            {{testAlert(activity.id)}}
+        </div>
     </div>
     
 </template>
@@ -11,22 +15,31 @@ import axios from 'axios';
 export default {
 
     name:'Activities',
-    props:{
-        location: Object
+    props: {
+        location:null,
     },
 
-    mounted(){
-        console.log("location:\n", this.location);
+    methods:{
         
-        axios.get('http://localhost:8080/api/activity/getActivitiesByCity/'+this.city)
+        test(id){
+            console.log(id);
+        }
+    },
+
+    updated(){
+         //console.log("location:\n", this.location);
+    },
+
+    created(){
+        axios.get(`http://localhost:8080/api/activity/getActivitiesByCity/${this.location.city}`)
         .then(response =>{
-            this.list = response.data;
+            this.activities = response.data;
         })
     },
 
     data(){
         return{
-            list: Array
+            activities:[]
         }
     }
 
