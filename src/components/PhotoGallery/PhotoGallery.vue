@@ -20,7 +20,7 @@
         <div v-show='toggle' id='fullGallery'>
           <button class='hidebtn' @click='toggle = !toggle'>X</button>
           <div id='gallery'>
-            <div id="prev" @click="prevPhoto"> &lt; </div>
+            <div id="prev" @click="prevPhoto">  &lt; </div>
             <div id="photoDisplay">
               <div id='photoContainer'>
                 <img v-bind:src="`${displayUrl}`" id='displayImage'>
