@@ -180,6 +180,7 @@ export default {
         axios.get('http://localhost:8080/api/event/getByListingId/'+this.listing.id)
         .then(response => {
             this.list = response.data;
+            this.events = this.list;
 
             
             
