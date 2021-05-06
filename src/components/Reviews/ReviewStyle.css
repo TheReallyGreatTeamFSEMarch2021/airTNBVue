@@ -44,26 +44,25 @@
   width: 60%;
 }
 
+.fas {
+  color: #ff5a5f;
+}
 #averageRating{
   display: flex;
-  font-size: 30px;
-  padding-top: 6.5px;
-  padding-bottom: 6.5px;
+  font-size:15px;
+  
   height: auto;
 }
 
 #star{
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  
   float: left;
   display: flex;
   height: auto;
 }
-
+/*
 #star-five {
-  margin: 10px 0;
+  margin: 101px 0;
   position: relative;
   display: block;
   color: #ff5a5f;
@@ -101,4 +100,4 @@
   border-left: 20px solid transparent;
   transform: rotate(-70deg);
   content: '';
-}
+}*/

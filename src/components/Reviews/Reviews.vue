@@ -12,7 +12,8 @@
 
         <div id="overview" v-if="averageReview">
                 <div id = "star">
-                    <span id = "star-five"></span>
+                    <!-- <span id = "star-five"></span>-->
+                    <i class="fas fa-star fa-sm"></i>
                 </div>
                 <div id = "averageRating">
                     <span id = "avgReview">{{this.averageReview}}</span>
@@ -20,6 +21,7 @@
         </div>
 
         <br/>
+        <!--
         <div class="reviews">
             <div v-for="review in reviews" :key="review.id" :id="review.id" class="review">
                 <div class="reviewInfo">
@@ -32,7 +34,7 @@
                 </div>
             </div>
         </div>
-
+        -->
     </div>
 </template>
 
@@ -75,7 +77,10 @@ import Vue from 'vue';
             }
 
         },
-
+    created(){
+        this.averageRating(this.reviews);
+        this.sortReviewsByDate();
+    },
     beforeUpdate(){
         this.averageRating(this.reviews);
         this.sortReviewsByDate();

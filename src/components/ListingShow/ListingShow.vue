@@ -24,12 +24,12 @@
       </div>
       
       <div class="col-3"> 
-        <h2> Select dates</h2>
+        <Price :listing = "this.listing" />
       </div>   
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
-        <Reviews v-bind:reviews="this.reviews"/>
+       <!--<Reviews v-bind:reviews="this.reviews"/>-->
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -64,6 +64,7 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
+  import Price from '../Price/Price.vue'
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
@@ -76,8 +77,9 @@
     name: 'ListingShow',
     components: {
         Description,
+        Price,
         PhotoGallery,
-        Reviews,
+        //Reviews,
         MorePlaces,
         GMap,
         Rooms,
