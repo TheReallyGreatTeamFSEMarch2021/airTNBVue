@@ -59,7 +59,7 @@
         <h1>THINGS TO DO NEARBY</h1>
         <Activities 
         v-if="listing"
-        :location="listing.location"/>
+        :listing="listing"/>
     </div>
      <div class="row col-12"> 
         <h1>FOOTER IF WE DECIDE TO DO A FOOTER</h1>
