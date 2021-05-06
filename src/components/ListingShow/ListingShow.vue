@@ -1,20 +1,17 @@
- 
  <template>
   <div id="itemShowPage">
     <div class="row col-12">
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <PhotoGallery/>
+      <PhotoGallery v-bind:photos="this.photos"/>
     </div>
 
      <div class="row col-12">
       <div class="col-9">
         <description :listing="this.listing" v-if="listing"/>
           <div class="col-12">
-            <h2> Sleeping Arrangemnets</h2>
-            BEDROOM1 - 1 Queen Bed
-       
+            <Rooms v-bind:rooms="this.rooms"/>  
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
@@ -71,6 +68,7 @@
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
+  import Rooms from "../Rooms/Rooms.vue"
   import Description from "../Description/Description.vue";
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
@@ -84,7 +82,8 @@
         //Reviews,
         MorePlaces,
         GMap,
-        Amenities,
+        Rooms,
+        Amenities
     },  
     props: {
       
@@ -108,6 +107,8 @@
             this.loaded = true
             this.reviews = this.listing.reviews
             this.sortReviewsByDate(this.listing.reviews)
+            this.photos = this.listing.photos;
+            this.rooms = this.listing.rooms;
           }
         ).catch(error=>{
           this.listing = null;
@@ -118,7 +119,9 @@
         return{
           listing:null,
           loaded:false,
-          reviews:null
+          reviews:null,
+          photos:null,
+          rooms:null
         }
     },
     mounted(){
@@ -127,4 +130,3 @@
     
   }
 </script>
- 
