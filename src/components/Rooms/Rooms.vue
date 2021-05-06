@@ -40,25 +40,19 @@ export default {
     name: 'Rooms',
   
     props: {
-        listingId: Number
+        rooms:{
+                type: Array
+            }
     },
 
     data(){
         return{
-            rooms:[],
             bDataLoaded: false,
-            numRooms:Number
         }
     },
 
-    mounted(){
-        axios.get('http://localhost:8080/api/room/getByListingId/1')
-        .then(response => {
-            this.rooms = response.data;
-            this.bDataLoaded = true;
-            this.numRooms = this.rooms.length;
-            this.setRooms();
-        })
+    beforeUpdate(){
+       this.setRooms();
     },
 
     methods: {

@@ -1,18 +1,17 @@
- 
  <template>
   <div id="itemShowPage">
     <div class="row col-12">
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <PhotoGallery/>
+      <PhotoGallery v-bind:photos="this.photos"/>
     </div>
 
      <div class="row col-12">
       <div class="col-9">
         <description :listing="this.listing" v-if="listing"/>
           <div class="col-12">
-            <Rooms/>  
+            <Rooms v-bind:rooms="this.rooms"/>  
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
@@ -106,6 +105,8 @@
             this.loaded = true
             this.reviews = this.listing.reviews
             this.sortReviewsByDate(this.listing.reviews)
+            this.photos = this.listing.photos;
+            this.rooms = this.listing.rooms;
           }
         ).catch(error=>{
           this.listing = null;
@@ -116,7 +117,9 @@
         return{
           listing:null,
           loaded:false,
-          reviews:null
+          reviews:null,
+          photos:null,
+          rooms:null
         }
     },
     mounted(){
@@ -125,4 +128,3 @@
     
   }
 </script>
- 
