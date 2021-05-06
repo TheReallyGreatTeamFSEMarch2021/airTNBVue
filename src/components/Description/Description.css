@@ -1,48 +1,60 @@
-#descriptionHeader{
-    padding-bottom:10px;
+.grid-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 20px 20px;
+    grid-template-areas:
+        "Title Image"
+        "SubTitle .";
+}
+
+.Title {
+    grid-area: Title;
+    padding-bottom: 10px;
     text-align: left;
 }
-#detailsSection{
+
+.SubTitle {
+    grid-area: SubTitle;
+    text-align: left;
+}
+
+.Image {
+    grid-area: Image;
+    float: right;
+}
+#detailsSection {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-#descriptionPanel{
-    
-}
-#reviewNumber{
-
-}
-#placeDetails{
-
-}
-#hostImage{
-float: right
-}
-#descriptionBlurb{
+#descriptionBlurb {
     text-align: left;
     margin-top: 10px;
     font-size: 12px;
 }
-.grid-container {
+.grid-features{
     display: grid;
     grid-template-columns: 50px auto;
     margin: 20px;
+
 }
-.detailHeading{
+.detailHeading {
     font-weight: 400 !important;
     font-size: 16px !important;
     line-height: 20px !important;
 }
+
 .detailSubHeading {
     font-size: 14px;
     color: rgb(113, 113, 113);
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 }
-.subDetail{
+
+.subDetail {
     text-align: left;
-    padding-top:9px;
+    padding-top: 9px;
     padding-left: 20px;
 }
+
 .fas {
     size: 122px;
 }
