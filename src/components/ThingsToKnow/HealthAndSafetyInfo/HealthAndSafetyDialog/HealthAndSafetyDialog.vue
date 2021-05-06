@@ -28,6 +28,11 @@
     props: {
       healthAndSafetyInfo: Object
     },
+    data() {
+      return {
+        dialog: false
+      }
+    },
     mounted(){
           
     }
