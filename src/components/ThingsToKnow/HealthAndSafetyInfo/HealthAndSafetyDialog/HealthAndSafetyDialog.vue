@@ -23,7 +23,7 @@
             <v-card-text>
               <p v-if="healthAndSafetyInfo.petsInfo"><v-icon color=#000 small>mdi-paw</v-icon> Pet(s) live on property - {{healthAndSafetyInfo.petsInfo}}</p>
               <p v-if="healthAndSafetyInfo.noiseInfo"><v-icon color=#000 small>mdi-volume-high</v-icon> Potential for noise - {{healthAndSafetyInfo.noiseInfo}}</p>
-              <p v-if="healthAndSafetyInfo.parkingInfo"><v-icon color=#000 small>mdi-car</v-icon> No parking on property - {{healthAndSafetyInfo.parkingInfo}}</p>
+              <p v-if="healthAndSafetyInfo.parkingInfo"><v-icon color=#000 small>mdi-car-off</v-icon> No parking on property - {{healthAndSafetyInfo.parkingInfo}}</p>
               <p v-if="healthAndSafetyInfo.securityDeposit"><v-icon color=#000 small>mdi-credit-card</v-icon> Security deposit - if you damage the home, you may be charged up to ${{healthAndSafetyInfo.securityDeposit}}</p>
               <p v-if="healthAndSafetyInfo.sharedSpaces"><v-icon color=#000 small>mdi-sofa-single</v-icon> Some spaces are shared - {{healthAndSafetyInfo.sharedSpaces}}</p>
               <p v-if="healthAndSafetyInfo.stairs"><v-icon color=#000 small>mdi-stairs</v-icon> Must climb stairs - {{healthAndSafetyInfo.stairs}}</p>
