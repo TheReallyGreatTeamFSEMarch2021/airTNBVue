@@ -107,7 +107,7 @@
 
     beforeMount(){
         let listingId = this.$route.params.id;
-        axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
+        axios.get('https://airtnbapi.jaitken-projects.com/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
             this.loaded = true

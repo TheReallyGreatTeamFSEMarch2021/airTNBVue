@@ -115,7 +115,7 @@ export default {
   },
   mounted() {
     console.log("PRINTING");
-    axios.get('http://localhost:8080/api/host/getById/'+this.listing.id).then(
+    axios.get('https://airtnbapi.jaitken-projects.com/api/host/getById/'+this.listing.id).then(
           (resp)=> {
          this.hostImageUrl = resp.data.hostImageURL;
          console.log(this.hostImageUrl)
