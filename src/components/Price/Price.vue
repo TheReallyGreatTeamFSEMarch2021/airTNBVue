@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="2" class="mx-auto" max-width="344" outlined>
+  <v-card id="priceBox" elevation="2" class="mx-auto" max-width="344" outlined>
     <div>
       <div id="title">
         <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>

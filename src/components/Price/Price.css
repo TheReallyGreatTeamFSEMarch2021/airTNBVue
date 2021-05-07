@@ -6,7 +6,9 @@
     text-transform: none;
     margin: 10px;
 }
-
+#priceBox {
+    margin-left:20px;
+}
 #calendar {
     margin: 10px;
 }
