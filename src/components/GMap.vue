@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import token from "../assets/mapskey.json"
 export default {
     name:"GMap",
     props:{
@@ -25,7 +24,7 @@ export default {
     },
     methods:{
         getApiKey(){
-            return token.token;
+            return process.env.VUE_APP_MAPS_KEY;
         }
     }
 }
