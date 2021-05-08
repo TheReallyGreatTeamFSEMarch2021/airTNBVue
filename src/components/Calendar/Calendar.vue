@@ -5,6 +5,17 @@
         <v-toolbar
           flat
         >
+
+          <v-btn
+            dark
+            class="mr-4"
+            color="primary"
+            @click="dialog = true"
+          >
+            New Event
+          </v-btn>
+
+
           <v-btn
             outlined
             class="mr-4"
@@ -220,6 +231,14 @@ export default {
         this.currentlyEditing = null;
       })
 
+    },
+
+    deleteEvent() {
+      axios.delete('http://localhost:8080/api/event/'+this.selectedEvent.id)
+      .then(response => {
+        this.selectedOpen = false;
+        this.getEvents();
+      })
     },
 
      viewDay ({ date }) {
