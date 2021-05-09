@@ -84,6 +84,42 @@
           </v-menu>
         </v-toolbar>
       </v-sheet>
+
+      <v-dialog v-model="dialog" max-width="500">
+        <v-card>
+          <v-container>
+            <v-form @submit.prevent="addEvent">
+              <v-text-field v-model="name" type="text" label="event name (required)"></v-text-field>
+              <v-text-field v-model="details" type="text" label="detail"></v-text-field>
+              <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
+              <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
+              <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
+              <v-btn type="submit" color="primary" class="mr-4" @click.stop="dialog = false">
+                create event
+              </v-btn>
+            </v-form>
+          </v-container>
+        </v-card>
+      </v-dialog>
+
+      <v-dialog v-model="dialogDate" max-width="500">
+        <v-card>
+          <v-container>
+            <v-form @submit.prevent="addEvent">
+              <v-text-field v-model="name" type="text" label="event name (required)"></v-text-field>
+              <v-text-field v-model="details" type="text" label="detail"></v-text-field>
+              <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
+              <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
+              <v-text-field v-model="color" type="color" label="color (click to open color menu)"></v-text-field>
+              <v-btn type="submit" color="primary" class="mr-4" @click.stop="dialog = false">
+                create event
+              </v-btn>
+            </v-form>
+          </v-container>
+        </v-card>
+      </v-dialog>
+
+
       <v-sheet height="600">
         <v-calendar
           ref="calendar"
@@ -121,7 +157,6 @@
             <v-card-text>
               <form v-if="currentlyEditing !==selectedEvent.id">
                 {{selectedEvent.details}}
-                rawr
               </form>
               <form v-else>
                 <textarea-autosize
@@ -195,6 +230,7 @@ export default {
         colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
         names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
         details: null,
+        name : "",
         start: null,
         end: null,
         color: "1976D2",
@@ -222,6 +258,39 @@ export default {
             this.list = response.data;
             this.events = this.list;
         })
+    },
+
+    addEvent() {
+
+      axios.get('http://localhost:8080/api/event/')
+        .then(response => {
+            let temp = response.data;
+            let add = {};
+            add.color = '#'+this.color
+            add.details = this.details;
+            add.end = this.end;
+            add.listing = this.listing;
+            add.name = this.name;
+            add.start = this.start;
+            for (let i = 0;i<temp.length;++i) {
+              let availableEvent = temp[i];
+              if (availableEvent.details === 'free') {
+                add.id = availableEvent.id;
+              }
+            }
+            
+            axios.post('http://localhost:8080/api/event',add)
+            .then(reply => {
+              this.getEvents();
+              this.name = "";
+              this.details = "";
+              this.color = "";
+              this.end = "";
+              this.start = "";
+              console.log("hi")
+            })
+        })
+
     },
 
     updateEvent() {
