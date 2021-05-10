@@ -1,0 +1,48 @@
+#reserveBtn {
+    background-color: #DB0C63;
+    color: white;
+    border-radius: 10px;
+    width: 80%;
+    text-transform: none;
+    margin: 10px;
+}
+#priceBox {
+    margin-left:20px;
+}
+#calendar {
+    margin: 10px;
+}
+
+#title {
+    margin: 20px;
+}
+
+#pricePerNight {
+    margin: 0px;
+    float: left;
+}
+
+#reviews {
+    margin: 0px;
+    text-align: right;
+    float:right;
+}
+
+#grandTotal {
+    font-weight: bold;
+}
+
+#chargeBreakdown {
+    text-align: left;
+}
+#boldedPrice{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.charges {}
+
+.chargePrice {}
+
+p {
+    margin: 10px;
+}

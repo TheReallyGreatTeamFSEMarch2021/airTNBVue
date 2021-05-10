@@ -1,31 +1,34 @@
- 
  <template>
   <div id="itemShowPage">
     <div class="row col-12">
       <h1>Title of AirTNB with ratings, superhost, city and state</h1>
     </div>
     <div class="listingPhotos row col-12">
-      <PhotoGallery/>
+      <PhotoGallery v-bind:photos="this.photos"/>
     </div>
 
      <div class="row col-12">
       <div class="col-9">
         <description :listing="this.listing" v-if="listing"/>
           <div class="col-12">
-            <Rooms/>  
+            <Rooms v-bind:rooms="this.rooms"/>  
           </div>
            <div class="col-12">
             <h2> Amenities</h2>
             <Amenities  v-if="listing" :id="listing.id"/>
           </div>
           <div class="col-12">
-              <h1>Calendar</h1>
+              <v-app>
+                 <v-content>
+                   <Calendar  v-if="listing" :listing="listing"/>
+                </v-content>
+             </v-app>
           </div>
         
       </div>
       
       <div class="col-3"> 
-        <h2> Select dates</h2>
+        <Price :listing = "this.listing" />
       </div>   
     </div>
     <div class="row col-12"> 
@@ -33,6 +36,7 @@
         <Reviews 
         v-if="listing"
         :reviews="this.reviews"/>
+       <!--<Reviews v-bind:reviews="this.reviews"/>-->
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -46,7 +50,7 @@
         <h1>HOSTED BY</h1>
     </div>
     <div class="row col-12"> 
-        <h1>THINGS TO KNOW</h1>
+        <ThingsToKnow v-if="listing" v-bind:listing="this.listing"/>
     </div>
     <div class="row col-12"> 
         <h1>MORE PLACES TO STAY</h1>
@@ -70,26 +74,32 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
+  import Price from '../Price/Price.vue'
   import GMap from "../GMap"
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
   import Rooms from "../Rooms/Rooms.vue"
   import Description from "../Description/Description.vue";
+  import ThingsToKnow from '../ThingsToKnow/ThingsToKnow.vue';
   import axios from 'axios';
   import MorePlaces from '../MorePlaces'
   import Amenities from '../Amenities/Amenities'
   import Activities from '../Activities/Activities.vue';
+  import Calendar from '../Calendar/Calendar'
   export default {
     name: 'ListingShow',
     components: {
         Description,
+        Price,
         PhotoGallery,
-        Reviews,
+        //Reviews,
         MorePlaces,
         GMap,
         Rooms,
         Amenities,
         Activities
+        Calendar,
+        ThingsToKnow
     },  
     props: {
       
@@ -114,6 +124,8 @@
             this.loaded = true
             this.reviews = this.listing.reviews
             this.sortReviewsByDate(this.listing.reviews)
+            this.photos = this.listing.photos;
+            this.rooms = this.listing.rooms;
           }
         ).catch(error=>{
           this.listing = null;
@@ -124,7 +136,9 @@
         return{
           listing:null,
           loaded:false,
-          reviews:null
+          reviews:null,
+          photos:null,
+          rooms:null
         }
     },
     mounted(){
@@ -133,4 +147,3 @@
     
   }
 </script>
- 
