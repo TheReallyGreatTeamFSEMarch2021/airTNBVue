@@ -1,10 +1,11 @@
 <template>
 
 <div data-app id="app">    
-     
+     <!--
     <div class="row col-12">
       <h1>NavBar Vue Component</h1>
     </div>
+    -->
     <router-view :key="$route.fullPath"></router-view>  
 
 
