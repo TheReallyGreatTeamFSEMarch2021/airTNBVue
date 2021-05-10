@@ -2,13 +2,6 @@
     <div id="rootReviewDiv">
         <v-divider id = "divivder"></v-divider>
         <br/>
-        
-
-
-        <div class="hello">
-            <read-more more-str="read more" :text="msg" link="#" less-str="read less" :max-chars="50"></read-more>
-            <read-more more-str="read more" less-str="read less" :text="msg2" link="#"></read-more>
-        </div>
 
         <div id="overview" v-if="averageReview">
                 <div id = "star">
@@ -39,8 +32,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-//Vue.use(ReadMore);
 import ReadMore from 'vue-read-more';
 import Vue from 'vue';
 

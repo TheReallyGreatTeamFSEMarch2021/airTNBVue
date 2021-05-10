@@ -33,6 +33,9 @@
     </div>
     <div class="row col-12"> 
         <h1>REVIEWS</h1>
+        <Reviews 
+        v-if="listing"
+        :reviews="this.reviews"/>
        <!--<Reviews v-bind:reviews="this.reviews"/>-->
     </div>
     <div class="row col-12"> 
@@ -58,6 +61,9 @@
     </div>
     <div class="row col-12"> 
         <h1>THINGS TO DO NEARBY</h1>
+        <Activities 
+        v-if="listing"
+        :listing="listing"/>
     </div>
      <div class="row col-12"> 
         <h1>FOOTER IF WE DECIDE TO DO A FOOTER</h1>
@@ -80,6 +86,7 @@
   import Amenities from '../Amenities/Amenities';
   import Calendar from '../Calendar/Calendar';
   import HostedBy from '../HostedBy/HostedBy';
+  import Activities from '../Activities/Activities.vue';
   export default {
     name: 'ListingShow',
     components: {
@@ -91,6 +98,7 @@
         GMap,
         Rooms,
         Amenities,
+        Activities
         Calendar,
         ThingsToKnow,
         HostedBy
@@ -110,6 +118,7 @@
     },
 
     beforeMount(){
+      
         let listingId = this.$route.params.id;
         axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
           (resp)=> {
@@ -144,7 +153,7 @@
         }
     },
     mounted(){
-          
+
     }
     
   }
