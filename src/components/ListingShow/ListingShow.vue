@@ -98,7 +98,7 @@
         GMap,
         Rooms,
         Amenities,
-        Activities
+        Activities,
         Calendar,
         ThingsToKnow,
         HostedBy
