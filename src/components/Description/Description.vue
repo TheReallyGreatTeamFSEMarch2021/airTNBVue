@@ -1,25 +1,22 @@
 <template>
   <div id="descriptionPanel">
-     <div class="grid-container">
-         <div class="Title">
-            <h3>{{ this.listing.subTitle }}</h3>
-         </div>
-         <div class="SubTitle">
-            <span> [0] guests</span>
-            <span>[Type of Place]</span>
-            <span>[0] beds</span>
-            <span>[0] bath</span>
-         </div>
-         <div class="Image">
-<v-avatar>
-            <v-img
-            v-bind:src="this.hostImageUrl"
-            >
-            </v-img>
-          </v-avatar>
-         </div>
-     </div>
-    <br>
+    <div class="grid-container">
+      <div class="Title">
+        <h3>{{ this.listing.subTitle }}</h3>
+      </div>
+      <div class="SubTitle">
+        <span> 3 guests</span>
+        <span> {{this.listing.rooms.length}} Rooms</span>
+        <span>{{this.numberOfBeds}} beds</span>
+        <span>1 bath</span>
+      </div>
+      <div class="Image">
+        <v-avatar>
+          <v-img v-bind:src="this.hostImageUrl"> </v-img>
+        </v-avatar>
+      </div>
+    </div>
+    <br />
     <hr />
     <div id="detailsSection">
       <div class="grid-features">
@@ -31,10 +28,10 @@
           </span>
         </div>
         <div class="subDetail">
-          <span class="detailHeading"> Entire {{ data.typeOfPlace }} </span>
+          <span class="detailHeading"> Entire {{ this.listing.description.typeOfPlace }} </span>
           <br />
           <span class="detailSubHeading">
-            You'll have the [Type of place] to yourself.
+            You'll have the {{this.listing.description.typeOfPlace}} to yourself.
           </span>
         </div>
       </div>
@@ -48,11 +45,11 @@
         </div>
         <div class="subDetail">
           <span class="detailHeading">
-            Free cancellation until {{ listing.freeCancellationDays }}
+            Free cancellation until 3:00pm on May 12
           </span>
           <br />
           <span class="detailSubHeading">
-            After that, cancel before [HOUR AM/PM] on [DATE] and get a full
+            After that, cancel before 3:00pm on May 12 and get a full
             refund, minus the first night and service fee.
           </span>
         </div>
@@ -110,20 +107,44 @@ export default {
   data() {
     return {
       data: "",
-      hostImageUrl: ""
+      hostImageUrl: "",
+      numberOfBeds: 0,
+      freeCancellationDate: null
     };
   },
+  methods:{
+    calculateNumberOfBeds(){
+      let roomArr = this.listing.rooms;
+      let numberOfBeds = 0;
+      roomArr.forEach(room => {
+        numberOfBeds += room.cBeds + room.dBeds + room.kBeds + room.qBeds + room.sBeds;
+      });
+      this.numberOfBeds = numberOfBeds;
+      console.log(numberOfBeds)
+      console.log("HELLO") 
+    }
+    ,
+    calculateCancellationDate(){
+      var date = new Date();
+      this.freeCancellationDate = date.setDate(date.getDate() + this.listing.freeCancellationDays);
+    }
+  },
   mounted() {
-    axios.get('https://airtnbapi.jaitken-projects.com/api/host/getById/'+this.listing.id).then(
-          (resp)=> {
-         this.hostImageUrl = resp.data.hostImageURL;
-         //console.log(this.hostImageUrl)
-            
-          }
-        ).catch(error=>{
-          this.listing = null;
-          console.error(error)
-        })
+    console.log(this.listing)
+    this.calculateNumberOfBeds();
+    this.calculateCancellationDate();
+    axios
+      .get(
+        "https://airtnbapi.jaitken-projects.com/api/host/getById/" +
+          this.listing.id
+      )
+      .then((resp) => {
+        this.hostImageUrl = resp.data.hostImageURL;
+      })
+      .catch((error) => {
+        this.listing = null;
+        console.error(error);
+      });
   },
 };
 </script>
