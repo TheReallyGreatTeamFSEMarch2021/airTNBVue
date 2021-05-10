@@ -17,7 +17,7 @@
         </div>
         <div class="reviews">
           <span id="star-five"></span>
-          <i class="fas fa-star fa-sm"></i>
+          <i class="fas fa-star fa-md"></i>
           <span id="averageReview">{{ this.averageReview }} </span>
         </div>
       </div>
