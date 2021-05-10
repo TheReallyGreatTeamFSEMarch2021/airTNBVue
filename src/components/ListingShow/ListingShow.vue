@@ -9,7 +9,7 @@
 
      <div class="row col-12">
       <div class="col-9">
-        <description :listing="this.listing" v-if="listing"/>
+        <description :listing="this.listing"/>
           <div class="col-12">
             <Rooms v-bind:rooms="this.rooms"/>  
           </div>
