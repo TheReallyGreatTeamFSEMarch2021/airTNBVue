@@ -9,7 +9,8 @@
           <v-btn
             dark
             class="mr-4"
-            color="primary"
+            color="green"
+            
             @click="dialog = true"
           >
             New Event
@@ -93,7 +94,7 @@
               <v-text-field v-model="details" type="text" label="detail"></v-text-field>
               <v-text-field v-model="start" type="date" label="start (required)"></v-text-field>
               <v-text-field v-model="end" type="date" label="end (required)"></v-text-field>
-              <v-btn type="submit" color="primary" class="mr-4" @click.stop="dialog = false">
+              <v-btn type="submit" color="green" class="mr-4" @click.stop="dialog = false">
                 create event
               </v-btn>
             </v-form>
@@ -252,7 +253,7 @@ export default {
   
   methods: {
     getEvents() {
-       axios.get('http://localhost:8080/api/event/getByListingId/'+this.listing.id)
+       axios.get('https://airtnbapi.jaitken-projects.com/api/event/getByListingId/'+this.listing.id)
 
         .then(response => {
             this.list = response.data;
@@ -262,7 +263,7 @@ export default {
 
     addEvent() {
 
-      axios.get('http://localhost:8080/api/event/')
+      axios.get('https://airtnbapi.jaitken-projects.com/api/event/')
         .then(response => {
             let temp = response.data;
             let add = {};
@@ -279,7 +280,7 @@ export default {
               }
             }
             
-            axios.post('http://localhost:8080/api/event',add)
+            axios.post('https://airtnbapi.jaitken-projects.com/api/event',add)
             .then(reply => {
               this.getEvents();
               this.name = "";
@@ -294,7 +295,7 @@ export default {
     },
 
     updateEvent() {
-      axios.put('http://localhost:8080/api/event/'+this.selectedEvent.id, this.selectedEvent)
+      axios.put('https://airtnbapi.jaitken-projects.com/api/event/'+this.selectedEvent.id, this.selectedEvent)
       .then(response => {
         this.selectedOpen = false;
         this.currentlyEditing = null;
@@ -303,7 +304,7 @@ export default {
     },
 
     deleteEvent() {
-      axios.delete('http://localhost:8080/api/event/'+this.selectedEvent.id)
+      axios.delete('https://airtnbapi.jaitken-projects.com/api/event/'+this.selectedEvent.id)
       .then(response => {
         this.selectedOpen = false;
         this.getEvents();
