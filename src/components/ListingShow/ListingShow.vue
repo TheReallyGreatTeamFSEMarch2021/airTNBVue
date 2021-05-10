@@ -48,7 +48,7 @@
         />
     </div>
     <div class="row col-12"> 
-        <h1>HOSTED BY</h1>
+        <HostedBy v-if="host&&listing" v-bind:host="this.host" v-bind:listing="this.listing"/>
     </div>
     <div class="row col-12"> 
         <ThingsToKnow v-if="listing" v-bind:listing="this.listing"/>
@@ -75,18 +75,19 @@
 <style scoped src="./ListingShow.css">
 </style>
 <script>
-  import Price from '../Price/Price.vue'
-  import GMap from "../GMap"
+  import Price from '../Price/Price.vue';
+  import GMap from "../GMap";
   import PhotoGallery from "../PhotoGallery/PhotoGallery.vue";
   import Reviews from "../Reviews/Reviews.vue";
-  import Rooms from "../Rooms/Rooms.vue"
+  import Rooms from "../Rooms/Rooms.vue";
   import Description from "../Description/Description.vue";
   import ThingsToKnow from '../ThingsToKnow/ThingsToKnow.vue';
   import axios from 'axios';
-  import MorePlaces from '../MorePlaces'
-  import Amenities from '../Amenities/Amenities'
+  import MorePlaces from '../MorePlaces';
+  import Amenities from '../Amenities/Amenities';
+  import Calendar from '../Calendar/Calendar';
+  import HostedBy from '../HostedBy/HostedBy';
   import Activities from '../Activities/Activities.vue';
-  import Calendar from '../Calendar/Calendar'
   export default {
     name: 'ListingShow',
     components: {
@@ -100,7 +101,8 @@
         Amenities,
         Activities,
         Calendar,
-        ThingsToKnow
+        ThingsToKnow,
+        HostedBy
     },  
     props: {
       
@@ -132,9 +134,18 @@
           this.listing = null;
           console.error(error)
         })
+
+        axios.get('http://localhost:8080/api/listing/getHost/'+listingId)
+        .then(resp=>{
+          this.host = resp.data;
+        }).catch(error=>{
+          this.host = null;
+          console.error(error);
+        });
     },
     data(){
         return{
+          host: null,
           listing:null,
           loaded:false,
           reviews:null,
