@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>{{amenity.value}}</h1>
+      <h1 style="color:black;">{{amenity.value}}</h1>
   </div>
 </template>
 
