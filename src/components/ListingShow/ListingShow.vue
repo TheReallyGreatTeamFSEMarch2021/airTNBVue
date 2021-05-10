@@ -66,9 +66,7 @@
         v-if="listing"
         :listing="listing"/>
     </div>
-     <div class="row col-12"> 
-        <h1>FOOTER IF WE DECIDE TO DO A FOOTER</h1>
-    </div>
+     
   </div>
 </template>
 
@@ -121,7 +119,7 @@
     beforeMount(){
       
         let listingId = this.$route.params.id;
-        axios.get('http://localhost:8080/api/listing/getById/'+listingId).then(
+        axios.get('https://airtnbapi.jaitken-projects.com/api/listing/getById/'+listingId).then(
           (resp)=> {
             this.listing = resp.data;
             this.loaded = true
@@ -135,7 +133,7 @@
           console.error(error)
         })
 
-        axios.get('http://localhost:8080/api/listing/getHost/'+listingId)
+        axios.get('https://airtnbapi.jaitken-projects.com/api/listing/getHost/'+listingId)
         .then(resp=>{
           this.host = resp.data;
         }).catch(error=>{

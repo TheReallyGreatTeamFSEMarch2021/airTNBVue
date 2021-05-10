@@ -22,7 +22,7 @@ export default {
         }
     },
     created(){
-        axios.get(`http://localhost:8080/api/activity/getActivitiesByCityAndState/${this.listing.id}`)
+        axios.get(`https://airtnbapi.jaitken-projects.com/api/activity/getActivitiesByCityAndState/${this.listing.id}`)
         .then(resp =>{
             resp.data = resp.data.filter(list => list.id !== this.listing.id)
             if(resp.data.length>=5) resp.data.splice(4);
