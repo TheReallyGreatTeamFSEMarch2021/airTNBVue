@@ -28,7 +28,9 @@
       </div>
       
       <div class="col-3"> 
-        <Price :listing = "this.listing" />
+        <Price :listing = "this.listing"
+               :reviews = "this.listing.reviews"
+         />
       </div>   
     </div>
     <div class="row col-12"> 

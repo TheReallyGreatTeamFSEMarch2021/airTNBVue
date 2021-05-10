@@ -2,12 +2,16 @@
   <v-card v-if="listing" id="priceBox" elevation="2" class="mx-auto" max-width="344" outlined>
     <div>
       <div id="title">
-        <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
-        <span id="averageReview">
-          <!--{{this.averageReview}} -->
-        </span> 
-        
+        <div class="inner">
+          <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
+        </div>
+        <div class="inner">
+          <span id = "star-five"></span>
+          <i class="fas fa-star fa-sm"></i>
+          <span id="averageReview">{{this.averageReview}} </span> 
+          </div>
       </div>
+      
       <br />
       <div id="calendar">[Calendar Goes here]</div>
       <v-btn elevation="2" id="reserveBtn" outlined text>Reserve</v-btn>
@@ -60,7 +64,8 @@ export default {
   name: "Price",
 
   props: {
-    listing: Object
+    listing: Object,
+    reviews: Array
   },
   data() {
     return {
@@ -74,21 +79,14 @@ export default {
   },
   methods: {
       averageRating(){
-                for(let i = 0; i < this.listing.reviews.length; i++){
-                    this.averageReview = this.averageReview + this.listing.reviews[i].starValue;
+                for(let i = 0; i < this.reviews.length; i++){
+                    this.averageReview = this.averageReview + this.reviews[i].starValue;
                 }
-                return this.averageReview = (this.averageReview / this.listing.reviews.length).toFixed(1) + ' (' + this.listing.reviews.length + ' reviews)';
-            },
-      
-      test(){
-        alert("Test")
-      }
-            
+                return this.averageReview = (this.averageReview / this.reviews.length).toFixed(1) + ' (' + this.reviews.length + ' reviews)';
+            }            
   },
   created() {
-    console.log("here")
     this.averageRating();
-    console.log("there")
   }
 };
 </script>
