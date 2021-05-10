@@ -1,3 +1,4 @@
+
 #reserveBtn {
     background-color: #DB0C63;
     color: white;
@@ -16,8 +17,15 @@
 #title {
     margin: 20px;
     display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: ". .";
 }
-
+.pricePerNight{
+    text-align: left;
+}
+.reviews{
+    text-align: right;
+}
 .fas {
     float:left;
     color: #ff5a5f;

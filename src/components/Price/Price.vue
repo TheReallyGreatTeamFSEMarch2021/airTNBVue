@@ -10,12 +10,12 @@
     <div>
       <div id="title">
         <div class="inner">
-          <span id="pricePerNight"
+          <span class="pricePerNight"
             ><span id="boldedPrice">${{ this.listing.price }} </span> /
             night</span
           >
         </div>
-        <div class="inner">
+        <div class="reviews">
           <span id="star-five"></span>
           <i class="fas fa-star fa-sm"></i>
           <span id="averageReview">{{ this.averageReview }} </span>
