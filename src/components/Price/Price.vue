@@ -22,7 +22,7 @@
         </div>
       </div>
       <br />
-      <div id="calendar">[Calendar Goes here]</div>
+      
       <v-btn elevation="2" id="reserveBtn" outlined text>Reserve</v-btn>
       <p>You won't be charged yet</p>
       <div id="tableRowGrid">
