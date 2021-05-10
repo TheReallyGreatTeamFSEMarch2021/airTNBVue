@@ -28,7 +28,9 @@
       </div>
       
       <div class="col-3"> 
-        <Price :listing = "this.listing" />
+        <Price :listing = "this.listing"
+               :reviews = "this.listing.reviews"
+         />
       </div>   
     </div>
     <div class="row col-12"> 
@@ -36,7 +38,6 @@
         <Reviews 
         v-if="listing"
         :reviews="this.reviews"/>
-       <!--<Reviews v-bind:reviews="this.reviews"/>-->
     </div>
     <div class="row col-12"> 
         <h1 style="text-align:left">LOCATION</h1>
@@ -93,7 +94,7 @@
         Description,
         Price,
         PhotoGallery,
-        //Reviews,
+        Reviews,
         MorePlaces,
         GMap,
         Rooms,

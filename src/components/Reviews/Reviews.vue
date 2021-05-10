@@ -5,7 +5,7 @@
 
         <div id="overview" v-if="averageReview">
                 <div id = "star">
-                    <!-- <span id = "star-five"></span>-->
+                    <span id = "star-five"></span>
                     <i class="fas fa-star fa-sm"></i>
                 </div>
                 <div id = "averageRating">
@@ -14,7 +14,7 @@
         </div>
 
         <br/>
-        <!--
+        
         <div class="reviews">
             <div v-for="review in reviews" :key="review.id" :id="review.id" class="review">
                 <div class="reviewInfo">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        -->
+        
     </div>
 </template>
 
@@ -69,21 +69,14 @@ import Vue from 'vue';
 
         },
     created(){
-        this.averageRating(this.reviews);
+        this.averageRating();
         this.sortReviewsByDate();
-    },
-    beforeUpdate(){
-        this.averageRating(this.reviews);
-        this.sortReviewsByDate();
-        this.totalComments = this.reviews.length;
     },
 
         data(){
             return{
                 averageReview: false,
                 reviewsToShow: 6,
-                msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-                msg2: 'Lorem ipsum dolor sit amet'
             }
         },
        

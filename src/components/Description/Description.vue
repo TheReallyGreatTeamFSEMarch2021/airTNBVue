@@ -114,11 +114,10 @@ export default {
     };
   },
   mounted() {
-    console.log("PRINTING");
     axios.get('http://localhost:8080/api/host/getById/'+this.listing.id).then(
           (resp)=> {
          this.hostImageUrl = resp.data.hostImageURL;
-         console.log(this.hostImageUrl)
+         //console.log(this.hostImageUrl)
             
           }
         ).catch(error=>{

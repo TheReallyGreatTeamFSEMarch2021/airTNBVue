@@ -15,6 +15,16 @@
 
 #title {
     margin: 20px;
+    display:grid;
+}
+
+.fas {
+    float:left;
+    color: #ff5a5f;
+  }
+
+#averageReview{
+    float:left;
 }
 
 #pricePerNight {
