@@ -34,7 +34,6 @@
 <style scoped src="./RoomsStyle.css">
 </style>
 <script>
-import axios from 'axios';
 
 export default {
     name: 'Rooms',
@@ -51,7 +50,7 @@ export default {
         }
     },
 
-    beforeUpdate(){
+    created(){
        this.setRooms();
     },
 

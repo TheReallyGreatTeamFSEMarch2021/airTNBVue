@@ -6,13 +6,25 @@
     text-transform: none;
     margin: 10px;
 }
-
+#priceBox {
+    margin-left:20px;
+}
 #calendar {
     margin: 10px;
 }
 
 #title {
     margin: 20px;
+    display:grid;
+}
+
+.fas {
+    float:left;
+    color: #ff5a5f;
+  }
+
+#averageReview{
+    float:left;
 }
 
 #pricePerNight {

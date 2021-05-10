@@ -1,13 +1,17 @@
 <template>
-  <v-card elevation="2" class="mx-auto" max-width="344" outlined>
+  <v-card v-if="listing" id="priceBox" elevation="2" class="mx-auto" max-width="344" outlined>
     <div>
       <div id="title">
-        <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
-        <span id="reviews">
-          <Reviews :reviews="this.listing.reviews" />
-        </span>
-        
+        <div class="inner">
+          <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
+        </div>
+        <div class="inner">
+          <span id = "star-five"></span>
+          <i class="fas fa-star fa-sm"></i>
+          <span id="averageReview">{{this.averageReview}} </span> 
+          </div>
       </div>
+      
       <br />
       <div id="calendar">[Calendar Goes here]</div>
       <v-btn elevation="2" id="reserveBtn" outlined text>Reserve</v-btn>
@@ -56,13 +60,13 @@
 <style scoped src="./Price.css">
 </style>
 <script>
-import Reviews from "../Reviews/Reviews.vue";
 export default {
   name: "Price",
-  components: {
-    Reviews,
+
+  props: {
+    listing: Object,
+    reviews: Array
   },
-  props: ["listing"],
   data() {
     return {
       dialog: false,
@@ -70,8 +74,19 @@ export default {
       cleaningFee: 50,
       serviceFee: 20,
       occupancyTaxesAndFees: 34,
+      averageReview:false
     };
   },
-  created() {},
+  methods: {
+      averageRating(){
+                for(let i = 0; i < this.reviews.length; i++){
+                    this.averageReview = this.averageReview + this.reviews[i].starValue;
+                }
+                return this.averageReview = (this.averageReview / this.reviews.length).toFixed(1) + ' (' + this.reviews.length + ' reviews)';
+            }            
+  },
+  created() {
+    this.averageRating();
+  }
 };
 </script>

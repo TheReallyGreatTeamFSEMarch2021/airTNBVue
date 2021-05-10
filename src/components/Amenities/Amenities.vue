@@ -32,7 +32,7 @@ export default {
   },
 
   mounted(){
-        axios.get('http://localhost:8080/api/amenity/getByListingId/'+this.id)
+        axios.get('https://airtnbapi.jaitken-projects.com/api/amenity/getByListingId/'+this.id)
         .then(response => {
             this.list = response.data;
             
