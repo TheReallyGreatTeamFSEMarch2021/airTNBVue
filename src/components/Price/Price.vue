@@ -3,9 +3,9 @@
     <div>
       <div id="title">
         <span id="pricePerNight"><span id="boldedPrice">${{ this.listing.price }} </span> / night</span>
-        <span id="reviews">
-          <Reviews :reviews="this.listing.reviews" />
-        </span>
+        <span id="averageReview">
+          <!--{{this.averageReview}} -->
+        </span> 
         
       </div>
       <br />
@@ -56,13 +56,12 @@
 <style scoped src="./Price.css">
 </style>
 <script>
-import Reviews from "../Reviews/Reviews.vue";
 export default {
   name: "Price",
-  components: {
-    Reviews,
+
+  props: {
+    listing: Object
   },
-  props: ["listing"],
   data() {
     return {
       dialog: false,
@@ -70,8 +69,26 @@ export default {
       cleaningFee: 50,
       serviceFee: 20,
       occupancyTaxesAndFees: 34,
+      averageReview:false
     };
   },
-  created() {},
+  methods: {
+      averageRating(){
+                for(let i = 0; i < this.listing.reviews.length; i++){
+                    this.averageReview = this.averageReview + this.listing.reviews[i].starValue;
+                }
+                return this.averageReview = (this.averageReview / this.listing.reviews.length).toFixed(1) + ' (' + this.listing.reviews.length + ' reviews)';
+            },
+      
+      test(){
+        alert("Test")
+      }
+            
+  },
+  created() {
+    console.log("here")
+    this.averageRating();
+    console.log("there")
+  }
 };
 </script>
